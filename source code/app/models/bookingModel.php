@@ -55,8 +55,9 @@ class BookingModel {
         $res = $this->db->select($query);
         return $res;
     }
+    
     public function getBookingByBU($uid, $bid) {
-        $query = "SELECT distinct fullname, email, R.address, phone, money, adult_num, child_num,
+        $query = "SELECT distinct bid, fullname, email, R.address, phone, money, adult_num, child_num,
         createdAt, date, status, restaurant_name
         FROM booking B join restaurant R ON B.r_id = R.rid
         WHERE B.u_id = $uid AND B.bid = $bid";

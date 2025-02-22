@@ -38,7 +38,7 @@ class accountController extends Controller {
     public function manageBooking() {
         if(isset($_SESSION['user-id'])) {
             $uid = $_SESSION['user-id'];
-        } 
+        }
         $this->booking = $this->model_booking->getBookingByUid($uid);
         $this->renderUser('layout', ['page' => 'account/manage', 'booking' => $this->booking, 'category' => $this->category, 'general' => $this->general]);
     }
@@ -114,10 +114,15 @@ class accountController extends Controller {
         if(isset($_POST['orderid'])) {
             $bid = $_POST['orderid'];
         } else echo "No orderid";
+
+        if(isset($_POST['path'])) {
+            $path = $_POST['path'];
+        } else echo "No path";
+
         $this->booking = $this->model_booking->getBookingByBU($uid, $bid);
         $this->booking['money'] = number_format($this->booking['money'],0,',','.');
 
-        $this->renderUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'general' => $this->general, 'booking' => $this->booking]);
+        $this->renderUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'general' => $this->general, 'booking' => $this->booking, 'path' => $path]);
         
         
 

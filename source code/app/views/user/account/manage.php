@@ -147,6 +147,7 @@
                 data: {
                     // userid: userid,
                     orderid: orderid,
+                    path: '<?= $path ?>'
                 },
                 success: function (response) {
                     // Add response in Modal body

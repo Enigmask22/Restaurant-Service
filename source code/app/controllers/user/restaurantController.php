@@ -254,4 +254,17 @@ class RestaurantController extends Controller {
         $this->renderUser('layout', ['page' => 'restaurant/booking', 'category' => $this->category, 'restaurant' => $restaurant, 'email_error' => $error_email, 'fullname_error' => $error_fullname, 'phone_error' => $error_phone, 'address_error' => $error_address]);
 
     }
+
+    public function cancel_booking($bid) {
+        $res = $this->model_booking->updateStatus($bid, 3);
+        $url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+
+        if (!$res) {
+            $_SESSION['message'] = '<script>toastr.error("Có lỗi xảy ra khi hủy đơn hàng")</script>';
+        } else {
+            $_SESSION['message'] = '<script>toastr.success("Hủy đơn hàng thành công")</script>';
+        }
+    
+        header('location:'. $url .'user/account/manageBooking');
+    }
 }
