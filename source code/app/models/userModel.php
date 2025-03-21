@@ -26,13 +26,22 @@ class UserModel {
     }
 
     public function getUserById($uid) {
-        $query = "SELECT * FROM user WHERE uid = '$uid'";
+        $query = "SELECT u.*, f.* FROM `user` u LEFT JOIN `file` f ON u.avatar_id = f.fid WHERE u.uid = $uid";
         $res = $this->db->select($query);
+        // echo '<pre>';
+        // var_dump($res->fetch_all(MYSQLI_ASSOC)[0]);
+        // echo '</pre>';
         return $res->fetch_all(MYSQLI_ASSOC)[0];
     }
 
     public function updateUser($uid, $name, $phone, $address) {
         $query = "UPDATE user SET name = '$name', phone = '$phone', address = '$address' WHERE uid = $uid";
+        $res = $this->db->update($query);
+        return $res;
+    }
+
+    public function updateAvatar($uid, $avatar_id) {
+        $query = "UPDATE user SET avatar_id = '$avatar_id' WHERE uid = $uid";
         $res = $this->db->update($query);
         return $res;
     }
