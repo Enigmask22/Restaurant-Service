@@ -31,8 +31,9 @@ class RestaurantModel
         $avatar,
         $imageid,
         $discount,
+        $res_mail
     ) {
-        $query_restaurant = "UPDATE restaurant SET `restaurant_name`='$restaurant_name', `original_adult_price`='$adult_price', `original_child_price`='$child_price', `address`='$address', `open_time`='$open_time', `description`='$description', `res_include`='$res_include', `res_exclude`='$res_exclude', `res_condition`='$res_condition', `res_rate`='$res_rate', `discount`='$discount', `avatar`='$avatar' WHERE `rid`='$rid'";
+        $query_restaurant = "UPDATE restaurant SET `restaurant_name`='$restaurant_name', `original_adult_price`='$adult_price', `original_child_price`='$child_price', `address`='$address', `open_time`='$open_time', `description`='$description', `res_include`='$res_include', `res_exclude`='$res_exclude', `res_condition`='$res_condition', `res_rate`='$res_rate', `discount`='$discount', `avatar`='$avatar', `res_mail`='$res_mail' WHERE `rid`='$rid'";
         $res = $this->db->update($query_restaurant);
 
         // $query_image = "UPDATE restaurant_image SET `img`='$image' WHERE `r_id`='$rid' OR `imageid`='$imageid'";
@@ -229,5 +230,12 @@ class RestaurantModel
             return $res->fetch_assoc();
         }
         return null;
+    }
+
+    public function updatePassword($rid, $newPassword)
+    {
+        $sql = "UPDATE restaurant SET password = '$newPassword' WHERE rid = $rid";
+        $res = $this->db->update($sql);
+        return $res;
     }
 }

@@ -96,8 +96,10 @@ class RestaurantController extends Controller
                 }
             }
 
+            $res_mail = $_POST['res_mail'];
+
             // Cập nhật thông tin nhà hàng với URL hình ảnh mới hoặc giữ nguyên URL cũ
-            $this->model_restaurant->updateRestaurant(
+            $result = $this->model_restaurant->updateRestaurant(
                 $rid,
                 $_POST['restaurant_name'],
                 $_POST['adult_price'],
@@ -111,7 +113,8 @@ class RestaurantController extends Controller
                 (int) $_POST['res_rate'],
                 $image_url,
                 null,
-                $_POST['discount']
+                $_POST['discount'],
+                $res_mail
             );
             $url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
             header('Location:' . $url . "admin/restaurant/restaurant_detail/" . $rid);

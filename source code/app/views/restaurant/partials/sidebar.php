@@ -43,7 +43,7 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
+        <div class="overflow-y-auto px-3 py-4 h-full bg-gray-800">
             <ul class="space-y-2 font-medium">
 
                 <li>
@@ -80,6 +80,18 @@
                                 d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z" />
                         </svg>
                         <span class="flex-1 whitespace-nowrap ms-3">Quản lý hình ảnh nhà hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $path ?>restaurant/account/changePassword"
+                        class="flex items-center p-3 text-gray-200 rounded-lg hover:bg-gray-700">
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 11h-3V8c0-2.21-1.79-4-4-4S8 5.79 8 8v3H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7c0-1.1-.9-2-2-2zm-7 8.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM10 8c0-1.1.9-2 2-2s2 .9 2 2v3h-4V8z" />
+                        </svg>
+                        <span class="flex-1 whitespace-nowrap ms-3">Đổi mật khẩu</span>
                     </a>
                 </li>
                 <li>

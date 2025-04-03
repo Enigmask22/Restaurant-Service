@@ -94,6 +94,7 @@ class HomeController extends Controller
             }
 
             // Tiếp tục xử lý cập nhật thông tin nhà hàng với $_POST['image']
+            $res_mail = $_POST['res_mail'];
             $this->model_restaurant->updateRestaurant(
                 $rid,
                 $_POST['restaurant_name'],
@@ -108,7 +109,8 @@ class HomeController extends Controller
                 (int) $_POST['res_rate'],
                 $_POST['image'],
                 null,
-                $_POST['discount']
+                $_POST['discount'],
+                $res_mail
             );
             $url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
             header('Location:' . $url . "restaurant/home/restaurant_detail/" . $rid);
