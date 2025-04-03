@@ -1,6 +1,10 @@
-<?php 
+<?php
 
-class accountController extends Controller {
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+
+class accountController extends Controller
+{
     // USER
     private $user;
     private $model_user;
@@ -17,40 +21,52 @@ class accountController extends Controller {
     private $general;
     private $model_general;
 
-    public function __construct() {
+    // FILE
+    private $file;
+    private $model_file;
+
+    public function __construct()
+    {
         $this->model_user = $this->model('userModel');
         $this->model_booking = $this->model('bookingModel');
         $this->model_category = $this->model('categoryModel');
         $this->model_general = $this->model('generalModel');
+        $this->model_file = $this->model('fileModel');
 
         $this->category = $this->model_category->getAll();
         $this->general = $this->model_general->getAll();
     }
 
-    public function index() {
-        if(isset($_SESSION['user-id'])) {
+    public function index()
+    {
+        if (isset($_SESSION['user-id'])) {
             $uid = $_SESSION['user-id'];
         }
         $this->user = $this->model_user->getUserById($uid);
-
+        // echo '<pre>';
+        // print_r($this->user);
+        // echo '</pre>';
         $this->renderUser('layout', ['page' => 'account/index', 'user' => $this->user, 'category' => $this->category, 'general' => $this->general]);
     }
-    public function manageBooking() {
-        if(isset($_SESSION['user-id'])) {
+    public function manageBooking()
+    {
+        if (isset($_SESSION['user-id'])) {
             $uid = $_SESSION['user-id'];
-        } 
+        }
+        $this->user = $this->model_user->getUserById($uid);
         $this->booking = $this->model_booking->getBookingByUid($uid);
-        $this->renderUser('layout', ['page' => 'account/manage', 'booking' => $this->booking, 'category' => $this->category, 'general' => $this->general]);
+        $this->renderUser('layout', ['page' => 'account/manage', 'booking' => $this->booking, 'category' => $this->category, 'general' => $this->general, 'user' => $this->user]);
     }
 
-    public function updateUser() {
-        if(isset($_SESSION['user-id'])) {
+    public function updateUser()
+    {
+        if (isset($_SESSION['user-id'])) {
             $uid = $_SESSION['user-id'];
         }
         $this->user = $this->model_user->getUserById($uid);
         $this->renderUser('layout', ['page' => 'account/update', 'user' => $this->user, 'category' => $this->category, 'general' => $this->general]);
-        
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
@@ -63,8 +79,9 @@ class accountController extends Controller {
             exit();
         }
     }
-    public function logout() {
-        if(isset($_SESSION['user-id'])) {
+    public function logout()
+    {
+        if (isset($_SESSION['user-id'])) {
             unset($_SESSION['user-id']);
             unset($_SESSION['orderid']);
             session_unset();
@@ -77,13 +94,15 @@ class accountController extends Controller {
         $url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
         header("location:" . $url);
     }
-    public function changePassword() {
-        $this->renderUser('layout', ['page' => 'account/changePassword', 'category' => $this->category, 'general' => $this->general]);
-        if(isset($_SESSION['user-id'])) $uid = $_SESSION['user-id'];
+    public function changePassword()
+    {
+        if (isset($_SESSION['user-id']))
+            $uid = $_SESSION['user-id'];
         $this->user = $this->model_user->getUserById($uid);
+        $this->renderUser('layout', ['page' => 'account/changePassword', 'category' => $this->category, 'general' => $this->general, 'user' => $this->user]);
         $save_user = $this->user;
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $old_password = isset($_POST['password']) ? trim($_POST['password']) : '';
             $new_password = isset($_POST['npassword']) ? trim($_POST['npassword']) : '';
             $confirm_password = isset($_POST['cpassword']) ? trim($_POST['cpassword']) : '';
@@ -91,7 +110,7 @@ class accountController extends Controller {
             $email = $save_user['email'];
             $present_password = $save_user['password'];
 
-            if(empty($old_password) || empty($new_password) || empty($confirm_password)) {
+            if (empty($old_password) || empty($new_password) || empty($confirm_password)) {
                 echo '<script type="text/javascript">toastr.error("Vui lòng điền đẩy đủ các trường")</script>';
             } else if (!password_verify($old_password, $present_password)) {
                 echo '<script type="text/javascript">toastr.error("Mật khẩu cũ không đúng")</script>';
@@ -106,20 +125,50 @@ class accountController extends Controller {
             }
         }
     }
-    public function logic() {
-        if(isset($_SESSION['user-id'])) {
+    public function logic()
+    {
+        if (isset($_SESSION['user-id'])) {
             $uid = $_SESSION['user-id'];
         }
         // $bid = 1;
-        if(isset($_POST['orderid'])) {
+        if (isset($_POST['orderid'])) {
             $bid = $_POST['orderid'];
-        } else echo "No orderid";
+        } else
+            echo "No orderid";
+
+        if (isset($_POST['path'])) {
+            $path = $_POST['path'];
+        } else
+            echo "No path";
+
         $this->booking = $this->model_booking->getBookingByBU($uid, $bid);
-        $this->booking['money'] = number_format($this->booking['money'],0,',','.');
+        $this->booking['money'] = number_format($this->booking['money'], 0, ',', '.');
 
-        $this->renderUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'general' => $this->general, 'booking' => $this->booking]);
-        
-        
-
+        $this->renderUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'general' => $this->general, 'booking' => $this->booking, 'path' => $path]);
+    }
+    public function uploadFile($param = null)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['avatar'])) {
+            if (isset($param)) {
+                $this->model_file->deleteOne($param);
+            }
+            $awsService = new AwsS3Service();
+            $url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+            $file = $_FILES['avatar'];
+            $fileName = $file['name'];
+            $file['file_extension'] = pathinfo($fileName, PATHINFO_EXTENSION);
+            $rs = $awsService->uploadFile($file, 'avatars');
+            if ($rs) {
+                $file['path'] = $rs['fileUrl'];
+                $file['file_key'] = $rs['fileKey'];
+                $rs = $this->model_file->createOne($file);
+                if ($rs) {
+                    $this->model_user->updateAvatar($_SESSION['user-id'], $rs['fid']);
+                    header('Location:' . $url . '/user/account');
+                }
+            } else {
+                echo 'Upload failed';
+            }
+        }
     }
 }

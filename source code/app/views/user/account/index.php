@@ -17,40 +17,7 @@
 <div class="container py-5">
     <div class="row">
         <!-- Left Sidebar -->
-        <div class="col-lg-3">
-            <div class="border-0 shadow-sm card rounded-3">
-                <div class="p-4 text-center card-body">
-                    <div class="mb-4">
-                        <img src="https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg" 
-                             class="rounded-circle img-thumbnail" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h5 class="mt-3 mb-0">Xin chào</h5>
-                    </div>
-                    
-                    <div class="list-group list-group-flush">
-                        <a href="<?php echo $path ?>user/account" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center active">
-                            <i class="bi bi-person fs-5 me-3"></i>
-                            <span>Thông tin cá nhân</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/manageBooking" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="bi bi-menu-button-wide fs-5 me-3"></i>
-                            <span>Quản lý đặt nhà hàng</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/changePassword" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="bi bi-lock fs-5 me-3"></i>
-                            <span>Đổi mật khẩu</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/logout" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center text-danger">
-                            <i class="bi bi-box-arrow-right fs-5 me-3"></i>
-                            <span>Đăng xuất</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php require_once "leftSidebar.php" ?>
 
         <!-- Main Content -->
         <div class="col-lg-9">
@@ -64,21 +31,21 @@
                             <div class="p-3 bg-light rounded-3">
                                 <small class="mb-1 text-muted d-block">Họ và tên</small>
                                 <?php if (isset($data['user']['name'])): ?>
-                                    <p class="mb-0 fw-medium"><?=$data['user']['name']?></p>
+                                    <p class="mb-0 fw-medium"><?= $data['user']['name'] ?></p>
                                 <?php else: ?>
                                     <p class="mb-0 text-danger">Bạn cần cập nhật họ và tên</p>
-                                <?php endif?>
+                                <?php endif ?>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="p-3 bg-light rounded-3">
                                 <small class="mb-1 text-muted d-block">Email</small>
                                 <?php if (isset($data['user']['email'])): ?>
-                                    <p class="mb-0 fw-medium"><?=$data['user']['email']?></p>
+                                    <p class="mb-0 fw-medium"><?= $data['user']['email'] ?></p>
                                 <?php else: ?>
                                     <p class="mb-0 text-danger">Bạn cần cập nhật Email</p>
-                                <?php endif?>
+                                <?php endif ?>
                             </div>
                         </div>
 
@@ -86,10 +53,10 @@
                             <div class="p-3 bg-light rounded-3">
                                 <small class="mb-1 text-muted d-block">Địa chỉ</small>
                                 <?php if ($data['user']['address']): ?>
-                                    <p class="mb-0 fw-medium"><?=$data['user']['address']?></p>
+                                    <p class="mb-0 fw-medium"><?= $data['user']['address'] ?></p>
                                 <?php else: ?>
                                     <p class="mb-0 text-danger">Bạn cần cập nhật Địa chỉ</p>
-                                <?php endif?>
+                                <?php endif ?>
                             </div>
                         </div>
 
@@ -97,17 +64,17 @@
                             <div class="p-3 bg-light rounded-3">
                                 <small class="mb-1 text-muted d-block">Điện thoại</small>
                                 <?php if (isset($data['user']['phone'])): ?>
-                                    <p class="mb-0 fw-medium"><?=$data['user']['phone']?></p>
+                                    <p class="mb-0 fw-medium"><?= $data['user']['phone'] ?></p>
                                 <?php else: ?>
                                     <p class="mb-0 text-danger">Bạn cần cập nhật số điện thoại</p>
-                                <?php endif?>
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-4 text-center">
-                        <a href="<?php echo $path ?>user/account/updateUser" 
-                           class="px-4 py-2 btn btn-primary">
+                        <a href="<?php echo $path ?>user/account/updateUser"
+                            class="px-4 py-2 btn btn-primary">
                             <i class="bi bi-pencil-square me-2"></i>
                             Cập nhật thông tin
                         </a>

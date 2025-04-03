@@ -18,7 +18,7 @@ class Router {
         $url = $this->parseURL();
 
         if (isset($url[0])) {
-            if($url[0] == "admin" || $url[0] == "authen" || $url[0] == "user") {
+            if($url[0] == "admin" || $url[0] == "authen" || $url[0] == "user" || $url[0] == "restaurant") {
                 $this->role = $url[0];
                 unset($url[0]);
             }

@@ -17,40 +17,7 @@
 <div class="container py-5">
     <div class="row g-4">
         <!-- Sidebar -->
-        <div class="col-lg-3">
-            <div class="border-0 shadow-sm card rounded-3">
-                <div class="p-4 text-center card-body">
-                    <div class="mb-4">
-                        <img src="https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg" 
-                             class="rounded-circle img-thumbnail" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h5 class="mt-3 mb-0">Xin chào</h5>
-                    </div>
-                    
-                    <div class="list-group list-group-flush">
-                        <a href="<?php echo $path ?>user/account" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="bi bi-person fs-5 me-3"></i>
-                            <span>Thông tin cá nhân</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/manageBooking" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="bi bi-menu-button-wide fs-5 me-3"></i>
-                            <span>Quản lý đặt nhà hàng</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/changePassword" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center active">
-                            <i class="bi bi-lock fs-5 me-3"></i>
-                            <span>Đổi mật khẩu</span>
-                        </a>
-                        <a href="<?php echo $path ?>user/account/logout" 
-                           class="py-3 list-group-item list-group-item-action d-flex align-items-center text-danger">
-                            <i class="bi bi-box-arrow-right fs-5 me-3"></i>
-                            <span>Đăng xuất</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php require_once "leftSidebar.php" ?>
 
         <!-- Main Content -->
         <div class="col-lg-9">

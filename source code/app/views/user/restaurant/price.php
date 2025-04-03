@@ -48,6 +48,9 @@
                   <a href="<?php echo $path ?>user/restaurant/restaurant_detail/<?php echo $res['rid'] ?>"
                     class="text-decoration-none fw-semibold" style="color: #2c3e50;">
                     <?php echo $res['restaurant_name'] ?>
+                    <?php if ($res['discount'] > 0) { ?>
+                      <span class="ms-2 badge bg-danger">Giảm <?php echo $res['discount'] ?>%</span>
+                    <?php } ?>
                   </a>
                 </td>
                 <td class="px-2 py-3 text-center">
@@ -63,11 +66,25 @@
                     <i class="bi bi-star-fill" style="color: #f1c40f;"></i>
                   <?php } ?>
                 </td>
-                <td class="px-4 py-3 text-center fw-bold" style="color: #e74c3c;">
-                  <?php echo ($res['adult_price']) ?> đ
+                <td class="px-4 py-3 text-center">
+                  <?php if ($res['discount'] > 0) { ?>
+                    <div class="text-decoration-line-through text-muted">
+                      <?php echo ($res['original_adult_price']) ?> đ
+                    </div>
+                  <?php } ?>
+                  <div class="fw-bold" style="color: #e74c3c;">
+                    <?php echo ($res['adult_price']) ?> đ
+                  </div>
                 </td>
-                <td class="px-4 py-3 text-center fw-bold" style="color: #e74c3c;">
-                  <?php echo ($res['child_price']) ?> đ
+                <td class="px-4 py-3 text-center">
+                  <?php if ($res['discount'] > 0) { ?>
+                    <div class="text-decoration-line-through text-muted">
+                      <?php echo ($res['original_child_price']) ?> đ
+                    </div>
+                  <?php } ?>
+                  <div class="fw-bold" style="color: #e74c3c;">
+                    <?php echo ($res['child_price']) ?> đ
+                  </div>
                 </td>
                 <td class="px-2 py-3 text-center" style="border-radius: 0 10px 10px 0;">
                   <a href="<?php echo $path ?>user/restaurant/booking/<?php echo $res['rid'] ?>" class="px-3 btn"

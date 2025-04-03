@@ -15,6 +15,17 @@
     </div>
   </nav>
 
+  <div class="mt-5 mb-4">
+    <form method="GET" action="<?php echo $path ?>user/restaurant/list_res/-1" class="d-flex justify-content-center">
+      <div class="input-group" style="max-width: 500px;">
+        <input type="text" name="search" class="form-control" placeholder="Tìm kiếm nhà hàng..." value="<?php echo htmlspecialchars($data['search']); ?>" style="border-radius: 10px 0 0 10px; padding: 10px;">
+        <button type="submit" class="btn" style="background: #e74c3c; color: white; border-radius: 0 10px 10px 0; padding: 10px 20px;">
+          <i class="bi bi-search"></i> Tìm kiếm
+        </button>
+      </div>
+    </form>
+  </div>
+
   <!-- Header Section -->
   <div class="mb-5 text-center">
     <h2 class="text-uppercase fw-bold position-relative d-inline-block" style="color: #2c3e50;">
@@ -35,6 +46,18 @@
               <img src="<?php echo $res['avatar'] ?>" class="card-img-top" style="height: 250px; object-fit: cover;"
                 alt="<?php echo $res['restaurant_name'] ?>">
               <div class="top-0 p-2 position-absolute end-0">
+                <?php if ($res['discount'] > 0) { ?>
+                  <div class="mb-2">
+                    <span class="px-3 py-2 badge bg-danger">
+                      Giảm <?php echo $res['discount'] ?>%
+                    </span>
+                  </div>
+                  <div>
+                    <span class="px-3 py-2 badge bg-secondary text-decoration-line-through">
+                      <?php echo $res['original_adult_price'] ?> đ
+                    </span>
+                  </div>
+                <?php } ?>
                 <span class="px-3 py-2 badge bg-danger" style="font-size: 1rem;">
                   <?php echo $res['adult_price'] ?> đ
                 </span>
@@ -130,4 +153,19 @@
       </div>
     <?php } ?>
   </div>
+
+  
 </div>
+
+<script>
+// Lắng nghe cả pageshow và popstate
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
+window.addEventListener('popstate', function(event) {
+    window.location.reload();
+});
+</script>

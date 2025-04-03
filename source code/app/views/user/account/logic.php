@@ -115,8 +115,17 @@ $response .= "</div>
         </div>
     </div>
 
-    <div class='modal-footer bg-light'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>
+    <div class='modal-footer bg-light'>";
+
+if ($data['booking']['status'] == 0 || $data['booking']['status'] == 1) {
+    $response .= "<form action='{$data['path']}user/restaurant/cancel_booking/{$data['booking']['bid']}' method='POST'>
+            <input type='hidden' name='bid' value='{$data['booking']['bid']}'>
+            <button type='submit' class='btn btn-danger' name='cancel-order'>
+                <i class='bi bi-x-circle me-2'></i>Hủy đơn hàng
+            </button>
+        </form>";
+}
+$response .= "<button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>
             <i class='bi bi-x-circle me-2'></i>Đóng
         </button>
     </div>

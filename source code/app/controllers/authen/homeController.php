@@ -2,9 +2,10 @@
 
 class HomeController extends Controller {
     private $model_user;
-
+    private $model_restaurant;
     public function __construct() {
         $this->model_user = $this->model('UserModel');
+        $this->model_restaurant = $this->model('RestaurantModel');
     }
 
     public function signup() {
@@ -54,7 +55,15 @@ class HomeController extends Controller {
             } else if (strlen($password) < 6 || !$password) {
                 $err = "Password phải có ít nhất 6 ký tự";
             } else {
-                // $hash = password_hash($password, PASSWORD_DEFAULT);
+                $restaurant_data = $this->model_restaurant->getRestaurantByEmail($acc);
+                if($restaurant_data && password_verify($password, $restaurant_data['password'])) {
+                    $_SESSION['restaurant-id'] = $restaurant_data['rid'];
+                    $_SESSION['isRestaurant'] = true;
+                    $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+                    header('Location: ' . $path . 'restaurant/home/restaurant_detail');
+                    return;
+                }
+                $hash = password_hash($password, PASSWORD_DEFAULT);
                 $data = $this->model_user->existUser($acc); 
                 $data1 = $this->model_user->existUserName($acc);
                 if($data->num_rows > 0 || $data1->num_rows > 0) {

@@ -13,6 +13,10 @@ class Controller {
         extract($data);
         require '../app/views/authen/' . $view . '.php';
     }
+    protected function renderRestaurant($view, $data = []) {
+        extract($data);
+        require '../app/views/restaurant/' . $view . '.php';
+    }
     protected function model($model) {
         if(file_exists('../app/models/' . $model . '.php')) {
             require_once '../app/models/' . $model . '.php';

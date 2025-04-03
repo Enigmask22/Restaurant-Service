@@ -8,13 +8,13 @@
     </div>
 
     <?php if (isset($data['addStatus'])) { ?>
-        <div class="mb-4 text-gray-900 dark:text-white">
-            <?php if ($data['addStatus']) {
+    <div class="mb-4 text-gray-900 dark:text-white">
+        <?php if ($data['addStatus']) {
                 echo 'Thêm thành công';
             } else {
                 echo 'Thêm thất bại';
             } ?>
-        </div>
+    </div>
     <?php } ?>
 
     <table class="w-full text-left text-gray-400 rtl:text-right">
@@ -37,46 +37,46 @@
         <tbody>
             <?php if ($data['categories'])
                 foreach ($data['categories'] as $category) { ?>
-                    <tr
-                        class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <div class="flex items-center">
-                                <img class="mr-4 w-12 h-12 rounded-full" src="<?php echo $category->category_img ?>" alt="img">
-                                <?php echo $category->category_name ?>
-                            </div>
-                        </th>
-                        <td class="px-6 py-4 text-center text-gray-900 dark:text-gray-200">
-                            <?php echo $category->cateid ?>
-                        </td>
-                        <td class="px-6 py-4 text-center text-gray-900 dark:text-gray-200">
-                            <?php echo $category->num_res ?>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex justify-end">
-                                <a href="<?php echo $path ?>admin/category/changeCategory/<?php echo $category->cateid ?>"
-                                    class="flex items-center justify-center px-3 py-2.5 mx-1 min-w-[100px] font-medium text-teal-500 rounded-lg border border-teal-500 transition duration-300 ease-in-out transform hover:text-white hover:bg-teal-500 hover:scale-110">
-                                    <svg class="mr-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 12H9m3-3v6m-7 5h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                    Chỉnh sửa
-                                </a>
+            <tr
+                class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <div class="flex items-center">
+                        <img class="mr-4 w-12 h-12 rounded-full" src="<?php echo $category->category_img ?>" alt="img">
+                        <?php echo $category->category_name ?>
+                    </div>
+                </th>
+                <td class="px-6 py-4 text-center text-gray-900 dark:text-gray-200">
+                    <?php echo $category->cateid ?>
+                </td>
+                <td class="px-6 py-4 text-center text-gray-900 dark:text-gray-200">
+                    <?php echo $category->num_res ?>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex justify-end">
+                        <a href="<?php echo $path ?>admin/category/changeCategory/<?php echo $category->cateid ?>"
+                            class="flex items-center justify-center px-3 py-2.5 mx-1 min-w-[100px] font-medium text-teal-500 rounded-lg border border-teal-500 transition duration-300 ease-in-out transform hover:text-white hover:bg-teal-500 hover:scale-110">
+                            <svg class="mr-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12H9m3-3v6m-7 5h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Chỉnh sửa
+                        </a>
 
-                                <a href="<?php echo $path ?>admin/category/deleteCategory/<?php echo $category->cateid ?>"
-                                    data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                    class="cate-delete-btn flex items-center justify-center px-3 py-2.5 mx-1 min-w-[100px] font-medium text-rose-500 rounded-lg border border-rose-500 transition duration-300 ease-in-out transform hover:text-white hover:bg-rose-500 hover:scale-110">
-                                    <svg class="mr-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    Xóa
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                <?php } ?>
+                        <a href="<?php echo $path ?>admin/category/deleteCategory/<?php echo $category->cateid ?>"
+                            data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                            class="cate-delete-btn flex items-center justify-center px-3 py-2.5 mx-1 min-w-[100px] font-medium text-rose-500 rounded-lg border border-rose-500 transition duration-300 ease-in-out transform hover:text-white hover:bg-rose-500 hover:scale-110">
+                            <svg class="mr-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Xóa
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <?php } ?>
         </tbody>
     </table>
 </div>
@@ -103,7 +103,8 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="<?php echo $path ?>admin/category/addCategory" method="POST" class="p-4 md:p-5">
+            <form action="<?php echo $path ?>admin/category/addCategory" method="POST" enctype="multipart/form-data"
+                class="p-4 md:p-5">
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div class="col-span-2">
                         <label for="category_name"
@@ -113,11 +114,13 @@
                             placeholder="Nhập tên danh mục" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="category_img"
+                        <label for="category_image"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ảnh</label>
-                        <input type="text" name="category_img" id="category_img"
+                        <input type="file" name="category_image" id="category_image" accept="image/*"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                            placeholder="Nhập đường dẫn ảnh" required="">
+                            required="">
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Chọn hình ảnh từ máy tính của bạn (JPG,
+                            PNG, GIF, WEBP).</p>
                     </div>
                     <button name="addSubmit" type="submit"
                         class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-lg border border-teal-500 shadow-md transition duration-300 ease-in-out transform hover:bg-teal-600 hover:scale-110 hover:shadow-lg focus:outline-none">
