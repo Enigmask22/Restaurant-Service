@@ -221,14 +221,19 @@ class RestaurantController extends Controller
         // Format giá trước khi hiển thị
         $restaurant = $this->format_price_single($restaurant);
 
+        // Lấy thông tin địa chỉ các chi nhánh của nhà hàng
+        $branches = $this->model_address->getAddressByRID($rid);
+
         $email = '';
         $fullname = '';
         $phone = '';
         $address = '';
+        $branch_id = '';
         $error_email = '';
         $error_fullname = '';
         $error_phone = '';
         $error_address = '';
+        $error_branch = '';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!isset($_POST['email']) || !$this->checkEmail($_POST['email'])) {
@@ -251,7 +256,12 @@ class RestaurantController extends Controller
             } else
                 $address = $_POST['address'];
 
-            if ($email && $fullname && $phone && $address) {
+            if (!isset($_POST['branch_id']) || empty($_POST['branch_id'])) {
+                $error_branch = 'Vui lòng chọn chi nhánh';
+            } else
+                $branch_id = $_POST['branch_id'];
+
+            if ($email && $fullname && $phone && $address && $branch_id) {
                 $adult_num = $_POST['adult_count'];
                 $child_num = $_POST['child_count'];
                 $date = $_POST['depart_date'];
@@ -272,6 +282,16 @@ class RestaurantController extends Controller
                 $payment_code = isset($_POST['payment_code']) ? $_POST['payment_code'] : '';
                 $status = ($payment_method === 'transfer' && !empty($payment_code)) ? 1 : 0;
 
+                // Lấy thông tin chi nhánh được chọn
+                $selected_branch = null;
+                foreach ($branches as $branch) {
+                    if ($branch['aid'] == $branch_id) {
+                        $selected_branch = $branch;
+                        break;
+                    }
+                }
+
+                // Bổ sung thông tin chi nhánh vào booking
                 $this->model_booking->insertBooking([
                     "adult_num" => $adult_num,
                     "child_num" => $child_num,
@@ -286,6 +306,8 @@ class RestaurantController extends Controller
                     "createdAt" => $created_at,
                     "status" => $status,
                     "payment_method" => $payment_method,
+                    "branch_location" => $selected_branch ? $selected_branch['location'] : '',
+                    "branch_id" => $branch_id
                 ]);
 
                 $emailHelper = new EmailHelper();
@@ -301,6 +323,7 @@ class RestaurantController extends Controller
                     'money' => $total_price,
                     'res_mail' => $restaurant['res_mail'],
                     'status' => $status,
+                    'branch_location' => $selected_branch ? $selected_branch['location'] : '',
                 ];
                 $emailHelper->sendBookingConfirmation($bookingData);
 
@@ -308,7 +331,19 @@ class RestaurantController extends Controller
             }
         }
 
-        $this->renderUser('layout', ['page' => 'restaurant/booking', 'category' => $this->category, 'restaurant' => $restaurant, 'email_error' => $error_email, 'fullname_error' => $error_fullname, 'phone_error' => $error_phone, 'address_error' => $error_address, 'general' => $this->general, 'isSuccess' => $pass]);
+        $this->renderUser('layout', [
+            'page' => 'restaurant/booking',
+            'category' => $this->category,
+            'restaurant' => $restaurant,
+            'branches' => $branches,
+            'email_error' => $error_email,
+            'fullname_error' => $error_fullname,
+            'phone_error' => $error_phone,
+            'address_error' => $error_address,
+            'branch_error' => $error_branch,
+            'general' => $this->general,
+            'isSuccess' => $pass
+        ]);
     }
 
     public function cancel_booking($bid)

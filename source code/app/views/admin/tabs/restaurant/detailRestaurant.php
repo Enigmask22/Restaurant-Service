@@ -107,19 +107,10 @@
             <div class="flex items-center">
                 <label for="open_time" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giờ mở
                     cửa</label>
-                <select id="open_time" name="open_time"
+                <input type="text" name="open_time" id="open_time"
                     class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    required>
-                    <option value="<?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>">
-                        <?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>
-                    </option>
-                    <?php foreach (array("8h" => "08:00:00", "9h" => "09:00:00", "10h" => "10:00:00", "11h" => "11:00:00", "12h" => "12:00:00", "13h" => "13:00:00", "14h" => "14:00:00", "15h" => "15:00:00", "16h" => "16:00:00", "17h" => "17:00:00", ) as $value => $res_time) {
-                        if ($res_time !== $data['restaurant_data']['restaurant'][0]['open_time']) {
-                            echo "<option value=\"$res_time\">$res_time</option>";
-                        }
-                    }
-                    ?>
-                </select>
+                    value="<?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>"
+                    placeholder="Ví dụ: 08:00 - 22:00" required>
             </div>
 
             <div class="flex items-center">
@@ -170,50 +161,53 @@
             </button>
         </div>
 
-        <form action="<?php echo $path ?>admin/restaurant/addAddress" method="POST" class="space-y-6 schedule-list">
+        <div class="space-y-6 schedule-list">
             <?php foreach ($data['restaurant_data']['address'] as $key => $value) { ?>
                 <div class="p-4 space-y-4 rounded-lg bg-gray-50 dark:bg-gray-700">
-                    <div class="flex items-center">
-                        <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi
-                            nhánh</label>
-                        <input type="text" name="branch" id="branch"
-                            class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                            value="<?php echo $value['branch'] ?>">
-                    </div>
+                    <form action="<?php echo $path ?>admin/restaurant/addAddress" method="POST">
+                        <div class="flex items-center">
+                            <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi
+                                nhánh</label>
+                            <input type="text" name="branch" id="branch"
+                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                value="<?php echo $value['branch'] ?>">
+                        </div>
 
-                    <div class=" flex items-center">
-                        <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa
-                            điểm</label>
-                        <input type="text" name="location" id="location"
-                            class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                            value="<?php echo $value['location'] ?>">
-                    </div>
+                        <div class=" flex items-center">
+                            <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa
+                                điểm</label>
+                            <input type="text" name="location" id="location"
+                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                value="<?php echo $value['location'] ?>">
+                        </div>
 
-                    <div class=" flex items-center">
-                        <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả địa
-                            điểm</label>
-                        <textarea name="description" id="description" rows="10"
-                            class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $value['description'] ?></textarea>
-                    </div>
+                        <div class=" flex items-center">
+                            <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả
+                                địa
+                                điểm</label>
+                            <textarea name="description" id="description" rows="10"
+                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $value['description'] ?></textarea>
+                        </div>
 
-                    <input type="hidden" name="aid" value="<?php echo $value['aid']; ?>">
-                    <input type="hidden" name="r_id" value="<?php echo $value['r_id']; ?>">
+                        <input type="hidden" name="aid" value="<?php echo $value['aid']; ?>">
+                        <input type="hidden" name="r_id" value="<?php echo $value['r_id']; ?>">
 
-                    <div class="flex justify-end mt-4 space-x-4">
-                        <a href="<?php echo $path ?>admin/restaurant/deleteAddress/<?php echo $value['r_id'] . '/' . $value['aid'] . '/' . $value['branch']; ?>"
-                            class="px-4 py-2 text-rose-500 border border-rose-500 rounded-lg transition duration-300 ease-in-out transform hover:bg-rose-500 hover:text-white hover:scale-105 <?php if ($key !== array_key_last($data['restaurant_data']['address']))
-                                echo "pointer-events-none opacity-50"; ?>">
-                            Xóa địa chỉ
-                        </a>
-                        <button name="changeAddress"
-                            class="px-4 py-2 text-teal-500 transition duration-300 ease-in-out transform border border-teal-500 rounded-lg hover:bg-teal-500 hover:text-white hover:scale-105"
-                            type="submit">
-                            Sửa địa chỉ
-                        </button>
-                    </div>
+                        <div class="flex justify-end mt-4 space-x-4">
+                            <a href="<?php echo $path ?>admin/restaurant/deleteAddress/<?php echo $value['r_id'] . '/' . $value['aid'] . '/' . $value['branch']; ?>"
+                                class="px-4 py-2 text-rose-500 border border-rose-500 rounded-lg transition duration-300 ease-in-out transform hover:bg-rose-500 hover:text-white hover:scale-105 <?php if ($key !== array_key_last($data['restaurant_data']['address']))
+                                    echo "pointer-events-none opacity-50"; ?>">
+                                Xóa địa chỉ
+                            </a>
+                            <button name="changeAddress"
+                                class="px-4 py-2 text-teal-500 transition duration-300 ease-in-out transform border border-teal-500 rounded-lg hover:bg-teal-500 hover:text-white hover:scale-105"
+                                type="submit">
+                                Sửa địa chỉ
+                            </button>
+                        </div>
+                    </form>
                 </div>
             <?php } ?>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -223,20 +217,21 @@
         const newNode = document.createElement("div");
         newNode.className = "p-4 bg-gray-50 rounded-lg dark:bg-gray-700 space-y-4";
         newNode.innerHTML = `
-            <div class="flex items-center">
-                <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi nhánh</label>
-                <input type="text" name="branch" id="branch" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
-                <input name="rid" type="number" value="${rid}" class="hidden">
-            </div>
+            <form action="<?php echo $path ?>admin/restaurant/addAddress" method="POST">
+                <div class="flex items-center">
+                    <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi nhánh</label>
+                    <input type="text" name="branch" id="branch" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    <input name="rid" type="number" value="${rid}" class="hidden">
+                </div>
 
-            <div class="flex items-center">
-                <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa điểm</label>
-                <input type="text" name="location" id="location" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
-            </div>
+                <div class="flex items-center">
+                    <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa điểm</label>
+                    <input type="text" name="location" id="location" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                </div>
 
-            <div class="flex items-center">
-                <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả địa điểm</label>
-                <textarea name="description" id="description" rows="10" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required></textarea>
+                <div class="flex items-center">
+                    <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả địa điểm</label>
+                    <textarea name="description" id="description" rows="10" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required></textarea>
                 </div>
 
                 <div class="flex justify-end mt-4 space-x-4">
@@ -245,7 +240,8 @@
                         type="submit">
                         Thêm địa chỉ
                     </button>
-                </div>`;
+                </div>
+            </form>`;
         list.appendChild(newNode);
     }
 

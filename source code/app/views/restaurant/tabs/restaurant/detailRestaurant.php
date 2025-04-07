@@ -107,19 +107,10 @@
             <div class="flex items-center">
                 <label for="open_time" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giờ mở
                     cửa</label>
-                <select id="open_time" name="open_time"
+                <input type="text" name="open_time" id="open_time"
                     class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    required>
-                    <option value="<?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>">
-                        <?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>
-                    </option>
-                    <?php foreach (array("8h" => "08:00:00", "9h" => "09:00:00", "10h" => "10:00:00", "11h" => "11:00:00", "12h" => "12:00:00", "13h" => "13:00:00", "14h" => "14:00:00", "15h" => "15:00:00", "16h" => "16:00:00", "17h" => "17:00:00", ) as $value => $res_time) {
-                        if ($res_time !== $data['restaurant_data']['restaurant'][0]['open_time']) {
-                            echo "<option value=\"$res_time\">$res_time</option>";
-                        }
-                    }
-                    ?>
-                </select>
+                    value="<?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>"
+                    placeholder="Ví dụ: 08:00 - 22:00" required>
             </div>
 
             <div class="flex items-center">

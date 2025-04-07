@@ -37,20 +37,20 @@
                         <div>
                             <p class="mb-0 text-muted">Giá người lớn</p>
                             <?php if ($data['restaurant']['discount'] > 0) { ?>
-                            <div class="mb-1">
-                                <span class="badge bg-danger">Giảm <?php echo $data['restaurant']['discount'] ?>%</span>
-                            </div>
-                            <h4 class="mb-0">
-                                <span class="text-decoration-line-through text-muted" style="font-size: 0.9em;">
-                                    <?php echo ($data['restaurant']['original_adult_price']) ?> đ
-                                </span>
-                                <span style="color: #e74c3c;">
-                                    <?php echo ($data['restaurant']['adult_price']) ?> đ
-                                </span>
-                            </h4>
+                                <div class="mb-1">
+                                    <span class="badge bg-danger">Giảm <?php echo $data['restaurant']['discount'] ?>%</span>
+                                </div>
+                                <h4 class="mb-0">
+                                    <span class="text-decoration-line-through text-muted" style="font-size: 0.9em;">
+                                        <?php echo ($data['restaurant']['original_adult_price']) ?> đ
+                                    </span>
+                                    <span style="color: #e74c3c;">
+                                        <?php echo ($data['restaurant']['adult_price']) ?> đ
+                                    </span>
+                                </h4>
                             <?php } else { ?>
-                            <h4 class="mb-0" style="color: #e74c3c;"><?php echo ($data['restaurant']['adult_price']) ?>
-                                đ</h4>
+                                <h4 class="mb-0" style="color: #e74c3c;"><?php echo ($data['restaurant']['adult_price']) ?>
+                                    đ</h4>
                             <?php } ?>
                         </div>
                     </div>
@@ -63,20 +63,20 @@
                         <div>
                             <p class="mb-0 text-muted">Giá trẻ em (dưới 10 tuổi)</p>
                             <?php if ($data['restaurant']['discount'] > 0) { ?>
-                            <div class="mb-1">
-                                <span class="badge bg-danger">Giảm <?php echo $data['restaurant']['discount'] ?>%</span>
-                            </div>
-                            <h4 class="mb-0">
-                                <span class="text-decoration-line-through text-muted" style="font-size: 0.9em;">
-                                    <?php echo ($data['restaurant']['original_child_price']) ?> đ
-                                </span>
-                                <span style="color: #e74c3c;">
-                                    <?php echo ($data['restaurant']['child_price']) ?> đ
-                                </span>
-                            </h4>
+                                <div class="mb-1">
+                                    <span class="badge bg-danger">Giảm <?php echo $data['restaurant']['discount'] ?>%</span>
+                                </div>
+                                <h4 class="mb-0">
+                                    <span class="text-decoration-line-through text-muted" style="font-size: 0.9em;">
+                                        <?php echo ($data['restaurant']['original_child_price']) ?> đ
+                                    </span>
+                                    <span style="color: #e74c3c;">
+                                        <?php echo ($data['restaurant']['child_price']) ?> đ
+                                    </span>
+                                </h4>
                             <?php } else { ?>
-                            <h4 class="mb-0" style="color: #e74c3c;"><?php echo ($data['restaurant']['child_price']) ?>
-                                đ</h4>
+                                <h4 class="mb-0" style="color: #e74c3c;"><?php echo ($data['restaurant']['child_price']) ?>
+                                    đ</h4>
                             <?php } ?>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                             <p class="mb-0 text-muted">Đánh giá</p>
                             <div>
                                 <?php for ($i = 0; $i < $data['restaurant']['res_rate']; $i++) { ?>
-                                <i class="bi bi-star-fill" style="color: #f1c40f;"></i>
+                                    <i class="bi bi-star-fill" style="color: #f1c40f;"></i>
                                 <?php } ?>
                             </div>
                         </div>
@@ -158,26 +158,26 @@
                 <div class="tab-pane fade show active" id="pills-address" role="tabpanel">
                     <h4 class="mb-4" style="color: #2c3e50;">Chi nhánh nhà hàng</h4>
                     <?php if ($data['address']) {
-            foreach ($data['address'] as $address) { ?>
-                    <div class="mb-3 card" style="border: none; background: #f8f9fa; border-radius: 10px;">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="bi bi-building me-2" style="color: #e74c3c;"></i>
-                                Chi nhánh <?php echo $address['branch'] ?>
-                            </h5>
-                            <p class="mb-2 card-text ms-4">
-                                <i class="bi bi-geo-alt me-2" style="color: #3498db;"></i>
-                                <?php echo $address['location'] ?>
-                            </p>
-                            <p class="mb-0 card-text ms-4">
-                                <i class="bi bi-info-circle me-2" style="color: #2ecc71;"></i>
-                                <?php echo $address['description'] ?>
-                            </p>
-                        </div>
-                    </div>
-                    <?php }
-          } else { ?>
-                    <div class="text-center text-muted">Chưa có thông tin chi nhánh</div>
+                        foreach ($data['address'] as $address) { ?>
+                            <div class="mb-3 card" style="border: none; background: #f8f9fa; border-radius: 10px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-building me-2" style="color: #e74c3c;"></i>
+                                        Chi nhánh <?php echo $address['branch'] ?>
+                                    </h5>
+                                    <p class="mb-2 card-text ms-4">
+                                        <i class="bi bi-geo-alt me-2" style="color: #3498db;"></i>
+                                        <?php echo $address['location'] ?>
+                                    </p>
+                                    <p class="mb-0 card-text ms-4">
+                                        <i class="bi bi-info-circle me-2" style="color: #2ecc71;"></i>
+                                        <?php echo $address['description'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php }
+                    } else { ?>
+                        <div class="text-center text-muted">Chưa có thông tin chi nhánh</div>
                     <?php } ?>
                 </div>
 
@@ -194,7 +194,9 @@
                                         <h5 class="card-title" style="color: #2ecc71;">
                                             <i class="bi bi-check-circle me-2"></i>Bao gồm
                                         </h5>
-                                        <p class="card-text"><?php echo $data['restaurant']['res_include'] ?></p>
+                                        <div class="card-text">
+                                            <?php echo nl2br(str_replace('- ', '<br>• ', $data['restaurant']['res_include'])); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +206,9 @@
                                         <h5 class="card-title" style="color: #e74c3c;">
                                             <i class="bi bi-x-circle me-2"></i>Không bao gồm
                                         </h5>
-                                        <p class="card-text"><?php echo $data['restaurant']['res_exclude'] ?></p>
+                                        <div class="card-text">
+                                            <?php echo nl2br(str_replace('- ', '<br>• ', $data['restaurant']['res_exclude'])); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +218,9 @@
                                         <h5 class="card-title" style="color: #3498db;">
                                             <i class="bi bi-exclamation-circle me-2"></i>Yêu cầu
                                         </h5>
-                                        <p class="card-text"><?php echo $data['restaurant']['res_condition'] ?></p>
+                                        <div class="card-text">
+                                            <?php echo nl2br(str_replace('- ', '<br>• ', $data['restaurant']['res_condition'])); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -227,29 +233,29 @@
                     <h4 class="mb-4" style="color: #2c3e50;">Thư viện ảnh</h4>
                     <div class="row g-4">
                         <?php if (!empty($data['images']) && count($data['images']) > 0) {
-              foreach ($data['images'] as $image) { ?>
-                        <div class="col-md-4">
-                            <div class="position-relative mb-4">
-                                <img src="<?php echo $image['path'] ?>" class="rounded img-fluid"
-                                    style="width: 100%; height: 250px; object-fit: cover;"
-                                    alt="<?php echo $data['restaurant']['restaurant_name'] ?>">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 hover-overlay"
-                                    style="background: rgba(231, 76, 60, 0.7); transition: all 0.3s ease; border-radius: 0.25rem;">
-                                    <a href="<?php echo $image['path'] ?>" data-fancybox="gallery"
-                                        class="btn btn-light rounded-circle">
-                                        <i class="bi bi-zoom-in"></i>
-                                    </a>
+                            foreach ($data['images'] as $image) { ?>
+                                <div class="col-md-4">
+                                    <div class="position-relative mb-4">
+                                        <img src="<?php echo $image['path'] ?>" class="rounded img-fluid"
+                                            style="width: 100%; height: 250px; object-fit: cover;"
+                                            alt="<?php echo $data['restaurant']['restaurant_name'] ?>">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 hover-overlay"
+                                            style="background: rgba(231, 76, 60, 0.7); transition: all 0.3s ease; border-radius: 0.25rem;">
+                                            <a href="<?php echo $image['path'] ?>" data-fancybox="gallery"
+                                                class="btn btn-light rounded-circle">
+                                                <i class="bi bi-zoom-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php }
+                        } else { ?>
+                            <div class="col-12 text-center py-5">
+                                <div class="text-muted">
+                                    <i class="bi bi-image-fill fs-1"></i>
+                                    <p class="mt-3">Chưa có hình ảnh nào trong thư viện</p>
                                 </div>
                             </div>
-                        </div>
-                        <?php }
-            } else { ?>
-                        <div class="col-12 text-center py-5">
-                            <div class="text-muted">
-                                <i class="bi bi-image-fill fs-1"></i>
-                                <p class="mt-3">Chưa có hình ảnh nào trong thư viện</p>
-                            </div>
-                        </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -302,28 +308,28 @@
 
             <!-- Comments List -->
             <?php if ($data['comment']) {
-        foreach ($data['comment'] as $comment) { ?>
-            <div class="mb-3 card" style="border: none; background: #f8f9fa; border-radius: 10px;">
-                <div class="card-body">
-                    <div class="mb-2 d-flex justify-content-between">
-                        <h6 class="mb-2 card-subtitle fw-bold"><?php echo $comment['name'] ?></h6>
-                        <small class="text-muted"><?php echo $comment['time'] ?></small>
-                    </div>
-                    <p class="mb-2 card-text"><?php echo $comment['cmt'] ?></p>
-                    <?php if ($comment['reply'] != '') { ?>
-                    <div class="p-3 ms-4" style="background: white; border-radius: 10px;">
-                        <div class="mb-2 d-flex align-items-center">
-                            <i class="bi bi-person-circle me-2"></i>
-                            <h6 class="mb-0">Admin</h6>
+                foreach ($data['comment'] as $comment) { ?>
+                    <div class="mb-3 card" style="border: none; background: #f8f9fa; border-radius: 10px;">
+                        <div class="card-body">
+                            <div class="mb-2 d-flex justify-content-between">
+                                <h6 class="mb-2 card-subtitle fw-bold"><?php echo $comment['name'] ?></h6>
+                                <small class="text-muted"><?php echo $comment['time'] ?></small>
+                            </div>
+                            <p class="mb-2 card-text"><?php echo $comment['cmt'] ?></p>
+                            <?php if ($comment['reply'] != '') { ?>
+                                <div class="p-3 ms-4" style="background: white; border-radius: 10px;">
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="bi bi-person-circle me-2"></i>
+                                        <h6 class="mb-0">Admin</h6>
+                                    </div>
+                                    <p class="mb-0 card-text"><?php echo $comment['reply'] ?></p>
+                                </div>
+                            <?php } ?>
                         </div>
-                        <p class="mb-0 card-text"><?php echo $comment['reply'] ?></p>
                     </div>
-                    <?php } ?>
-                </div>
-            </div>
-            <?php }
-      } else { ?>
-            <div class="text-center text-muted">Chưa có bình luận nào</div>
+                <?php }
+            } else { ?>
+                <div class="text-center text-muted">Chưa có bình luận nào</div>
             <?php } ?>
         </div>
     </div>

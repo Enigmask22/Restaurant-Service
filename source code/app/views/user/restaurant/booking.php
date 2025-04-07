@@ -33,8 +33,8 @@ EnvHelper::loadEnv(__DIR__ . '/../../../.env');
         </h2>
 
         <form class="gap-4 d-lg-flex" method="post" action="<?php echo $path ?>user/restaurant/booking/<?php echo $data['restaurant']['rid'] ?><?php if (isset($user_id)) {
-            echo '/' . $user_id;
-          } ?>">
+                  echo '/' . $user_id;
+              } ?>">
             <!-- Restaurant Service Section -->
             <div class="bg-white border-0 shadow-sm col-lg-8 rounded-4">
                 <div class="border-bottom" style="background: linear-gradient(45deg, #0dcaf0, #0d6efd);">
@@ -68,6 +68,24 @@ EnvHelper::loadEnv(__DIR__ . '/../../../.env');
                             <input type="text" class="form-control bg-light"
                                 value="<?php echo $data['restaurant']['res_rate'] ?> sao" disabled>
                         </div>
+                    </div>
+
+                    <!-- Thêm phần chọn chi nhánh -->
+                    <div class="mb-4">
+                        <label class="form-label text-muted">Chọn chi nhánh</label>
+                        <select name="branch_id" class="form-select" required>
+                            <option value="">-- Vui lòng chọn chi nhánh --</option>
+                            <?php if (isset($data['branches']) && !empty($data['branches'])): ?>
+                            <?php foreach ($data['branches'] as $branch): ?>
+                            <option value="<?php echo $branch['aid']; ?>">
+                                Chi nhánh <?php echo $branch['branch']; ?> - <?php echo $branch['location']; ?>
+                            </option>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                        <?php if (isset($data['branch_error']) && !empty($data['branch_error'])): ?>
+                        <small class="text-danger"><?php echo $data['branch_error'] ?></small>
+                        <?php endif; ?>
                     </div>
 
                     <!-- Booking Details -->
@@ -234,7 +252,7 @@ EnvHelper::loadEnv(__DIR__ . '/../../../.env');
 
 <!-- Success Modal -->
 <div style="<?php if ($data['isSuccess']) {
-  echo 'display:block;';
+    echo 'display:block;';
 } ?>" class="modal" tabindex="-1" id="success-booking" aria-hidden="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="border-0 shadow modal-content">

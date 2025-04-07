@@ -117,10 +117,9 @@
                                     <?= $data['restaurant_five'][$i]['location'] ?>
                                 </h6>
                                 <p class="card-text"><span class="fw-bold">Giá:
-                                    </span><?= $data['restaurant_five'][$i]['adult_price'] ?> VNĐ</p>
+                                    </span><?= $data['restaurant_five'][$i]['original_adult_price'] ?> VNĐ</p>
                                 <div style="text-align: center; margin-top: 10px;">
-                                    <button onclick='location.href="<?php echo $href; ?>"' 
-                                        class="btn"
+                                    <button onclick='location.href="<?php echo $href; ?>"' class="btn"
                                         style="background-color: #f97316; color: white; padding: 8px 24px; border-radius: 25px; text-transform: uppercase; font-weight: 500; transition: all 0.3s ease; display: inline-block; border: none; cursor: pointer;">
                                         ĐẶT NGAY
                                     </button>
@@ -153,8 +152,7 @@
                                         <p class="card-text small"><span class="fw-bold">Giá:
                                             </span><?= $data['restaurant_five'][$i]['adult_price'] ?> VNĐ</p>
                                         <div style="text-align: center; margin-top: 10px;">
-                                            <button onclick='location.href="<?php echo $href; ?>"' 
-                                                class="btn"
+                                            <button onclick='location.href="<?php echo $href; ?>"' class="btn"
                                                 style="background-color: #f97316; color: white; padding: 8px 24px; border-radius: 25px; text-transform: uppercase; font-weight: 500; transition: all 0.3s ease; display: inline-block; border: none; cursor: pointer;">
                                                 ĐẶT NGAY
                                             </button>

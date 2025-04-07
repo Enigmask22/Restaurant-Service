@@ -117,8 +117,10 @@ class BookingModel
         $u_id = $data['u_id'];
         $r_id = $data['r_id'];
         $createdAt = $data['createdAt'];
-        $status = $data['status'];
-        $payment_method = $data['payment_method'];
+        $status = isset($data['status']) ? $data['status'] : 0;
+        $payment_method = isset($data['payment_method']) ? $data['payment_method'] : 'restaurant';
+        $branch_location = isset($data['branch_location']) ? $data['branch_location'] : '';
+        $branch_id = isset($data['branch_id']) ? $data['branch_id'] : 0;
 
         if ($u_id) {
             $query = "INSERT INTO `booking` (
@@ -134,7 +136,9 @@ class BookingModel
             `u_id`,
             `r_id`,
             `createdAt`,
-            `payment_method`
+            `payment_method`,
+            `branch_id`,
+            `branch_location`
             ) VALUES (
             $adult_num,
             $child_num,
@@ -148,7 +152,9 @@ class BookingModel
             $u_id,
             $r_id,
             '$createdAt',
-            '$payment_method'
+            '$payment_method',
+            '$branch_id',
+            '$branch_location'
             )";
         } else {
             $query = "INSERT INTO `booking` (
@@ -164,7 +170,9 @@ class BookingModel
             `u_id`,
             `r_id`,
             `createdAt`,
-            `payment_method`
+            `payment_method`,
+            `branch_id`,
+            `branch_location`
             ) VALUES (
             $adult_num,
             $child_num,
@@ -178,7 +186,9 @@ class BookingModel
             NULL,
             $r_id,
             '$createdAt',
-            '$payment_method'
+            '$payment_method',
+            '$branch_id',
+            '$branch_location'
             )";
         }
         return $this->db->insert($query);
