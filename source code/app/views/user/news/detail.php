@@ -1,6 +1,3 @@
-
-
-
 <div class="container py-5">
   <nav aria-label="breadcrumb" style="background-color: #f8f9fa; border-radius: 10px;">
     <div class="container">
@@ -31,7 +28,7 @@
           <h2 class="mb-4 text-uppercase fw-bold" style="color: #2c3e50;">
             <?php echo $data['news']['title'] ?>
           </h2>
-          
+
           <!-- Featured Image -->
           <div class="mb-4 position-relative" style="height: 400px; border-radius: 10px; overflow: hidden;">
             <img src="<?php echo $data['news']['news_image'] ?>" class="w-100 h-100 object-fit-cover" alt="">
@@ -80,13 +77,14 @@
           <h4 class="mb-4 text-uppercase fw-bold" style="color: #2c3e50;">
             <i class="bi bi-shop me-2"></i>Nhà hàng liên quan
           </h4>
-          
+
           <?php if ($data['restaurant']) { ?>
             <div class="related-restaurants">
               <?php foreach ($data['restaurant'] as $res) { ?>
-                <a href="<?php echo $path ?>/user/restaurant/restaurant_detail/<?php echo $res['rid'] ?>" 
-                   class="mb-3 text-decoration-none d-block">
-                  <div class="card" style="border: none; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <a href="<?php echo $path ?>/user/restaurant/restaurant_detail/<?php echo $res['rid'] ?>"
+                  class="mb-3 text-decoration-none d-block">
+                  <div class="card"
+                    style="border: none; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
                     <div class="row g-0">
                       <div class="col-4">
                         <div style="height: 100px; overflow: hidden;">
@@ -95,9 +93,12 @@
                       </div>
                       <div class="col-8">
                         <div class="p-3 card-body">
-                          <h6 class="mb-1 card-title" style="color: #2c3e50;"><?php echo $res['restaurant_name'] ?></h6>
+                          <h6 class="mb-1 card-title" style="color: #2c3e50;">
+                            <?php echo $res['restaurant_name'] ?>
+                          </h6>
                           <p class="mb-0 card-text" style="color: #666;">
-                            Giá: <span style="color: #e74c3c;"><?php echo $res['adult_price'] ?> đ</span>
+                            Giá: <span style="color: #e74c3c;"><?php echo $res['original_adult_price'] ?>
+                              đ</span>
                           </p>
                         </div>
                       </div>
@@ -119,17 +120,17 @@
 </div>
 
 <style>
-.card:hover {
-  transform: translateY(-5px);
-}
+  .card:hover {
+    transform: translateY(-5px);
+  }
 
-.news-content {
-  font-size: 16px;
-  line-height: 1.8;
-}
+  .news-content {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 
-.related-restaurants .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
+  .related-restaurants .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
 </style>

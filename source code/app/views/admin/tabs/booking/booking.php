@@ -152,7 +152,7 @@
                     }
                 }
             }
-            $commission = $totalMoney * 0.4; // Tính hoa hồng 12%
+            $commission = $totalMoney * 0.1; // Tính hoa hồng 12%
             ?>
             <tr>
                 <td colspan="4" class="px-6 py-4 text-right">
@@ -165,7 +165,7 @@
             </tr>
             <tr>
                 <td colspan="4" class="px-6 py-4 text-right">
-                    Hoa hồng (40%):
+                    Hoa hồng (10%):
                 </td>
                 <td class="px-6 py-4 text-teal-600 dark:text-teal-400">
                     <?php echo number_format($commission, 0, ',', '.') ?> đ
