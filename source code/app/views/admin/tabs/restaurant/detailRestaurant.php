@@ -3,7 +3,7 @@
     <form action="<?php echo $path ?>admin/restaurant/changeRestaurant/<?php echo $data['rid'] ?>" method="POST"
         enctype="multipart/form-data" class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white"
         id="thong-tin">
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-semibold text-gray-800 dark:text-white">Thông tin nhà hàng</div>
             <hr class="border-gray-300 dark:border-gray-700">
         </div>
@@ -13,14 +13,14 @@
                 <label for="restaurant_name" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Tên nhà
                     hàng</label>
                 <input type="text" name="restaurant_name" id="restaurant_name"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['restaurant_name'] ?>" required>
             </div>
 
             <div class="flex items-center">
                 <label for="res_mail" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Email</label>
                 <input type="email" name="res_mail" id="res_mail"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['res_mail'] ?? '' ?>" required>
             </div>
 
@@ -28,7 +28,7 @@
                 <label for="adult_price" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giá người
                     lớn</label>
                 <input type="text" name="adult_price" id="adult_price"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['adult_price'] ?>" required>
             </div>
 
@@ -36,7 +36,7 @@
                 <label for="child_price" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giá trẻ
                     em</label>
                 <input type="text" name="child_price" id="child_price"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['child_price'] ?>" required>
             </div>
 
@@ -44,14 +44,14 @@
                 <label for="discount" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giảm giá
                     (%)</label>
                 <input type="number" name="discount" id="discount"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['discount'] ?>" min="0" max="100">
             </div>
 
             <div class="flex items-center">
                 <label for="res_include" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Bao gồm</label>
                 <textarea name="res_include" id="res_include" rows="4"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     required><?php echo $data['restaurant_data']['restaurant'][0]['res_include'] ?></textarea>
             </div>
 
@@ -59,38 +59,28 @@
                 <label for="res_exclude" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Không bao
                     gồm</label>
                 <textarea name="res_exclude" id="res_exclude" rows="4"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['res_exclude'] ?></textarea>
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['res_exclude'] ?></textarea>
             </div>
 
             <div class="flex items-center">
                 <label for="res_condition" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Điều kiện đặt
                     nhà hàng</label>
                 <textarea name="res_condition" id="res_condition" rows="4"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['res_condition'] ?></textarea>
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['res_condition'] ?></textarea>
             </div>
 
             <div class="flex items-center">
                 <label for="address" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa chỉ</label>
-                <select id="address" name="address"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    required>
-                    <option value="<?php echo $data['restaurant_data']['restaurant'][0]['address'] ?>">
-                        <?php echo $data['restaurant_data']['restaurant'][0]['address'] ?>
-                    </option>
-                    <?php foreach (array("TPHCM" => "Thành phố Hồ Chí Minh", "DN" => "Đà Nẵng", "VT" => "Vũng Tàu", "HA" => "Hội An", "HN" => "Hà Nội", "H" => "Huế") as $value => $addr) {
-                        if ($addr !== $data['restaurant_data']['restaurant'][0]['address']) {
-                            echo "<option value=\"$addr\">$addr</option>";
-                        }
-                    }
-                    ?>
-                </select>
+                <input type="text" id="address" name="address"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    value="<?php echo $data['restaurant_data']['restaurant'][0]['address'] ?>" required>
             </div>
 
             <div class="flex items-center">
                 <label for="res_rate" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chất lượng nhà
                     hàng</label>
                 <select id="res_rate" name="res_rate"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     required>
                     <option value="<?php echo $data['restaurant_data']['restaurant'][0]['res_rate'] . ' sao' ?>">
                         <?php echo $data['restaurant_data']['restaurant'][0]['res_rate'] . ' sao' ?>
@@ -108,7 +98,7 @@
                 <label for="open_time" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Giờ mở
                     cửa</label>
                 <input type="text" name="open_time" id="open_time"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     value="<?php echo $data['restaurant_data']['restaurant'][0]['open_time'] ?>"
                     placeholder="Ví dụ: 08:00 - 22:00" required>
             </div>
@@ -116,21 +106,21 @@
             <div class="flex items-center">
                 <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả</label>
                 <textarea name="description" id="description" rows="10"
-                    class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['description'] ?></textarea>
+                    class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $data['restaurant_data']['restaurant'][0]['description'] ?></textarea>
             </div>
 
             <div class="flex items-center">
                 <label for="image" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Hình ảnh</label>
-                <div class="w-3/4 flex flex-col">
+                <div class="flex flex-col w-3/4">
                     <div class="flex items-center space-x-4">
                         <input type="file" name="restaurant_image" id="restaurant_image" accept="image/*"
-                            class="p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            class="p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                         <input type="hidden" name="image" id="image"
                             value="<?php echo $data['restaurant_data']['restaurant'][0]['avatar'] ?>">
                     </div>
                     <div class="mt-2">
                         <img id="preview_image" src="<?php echo $data['restaurant_data']['restaurant'][0]['avatar'] ?>"
-                            class="h-32 w-auto object-cover rounded-lg border border-gray-300" alt="Restaurant preview">
+                            class="object-cover w-auto h-32 rounded-lg border border-gray-300" alt="Restaurant preview">
                     </div>
                     <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Chọn hình ảnh từ máy tính của bạn (JPG,
                         PNG, GIF, WEBP) hoặc giữ nguyên hình ảnh hiện tại.</p>
@@ -140,53 +130,53 @@
 
         <div class="flex justify-end mt-8 space-x-4">
             <button
-                class="px-6 py-3 font-semibold text-white transition duration-300 ease-in-out transform bg-teal-500 border border-teal-500 rounded-lg shadow-md hover:bg-teal-600 hover:scale-110 hover:shadow-lg focus:outline-none"
+                class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-lg border border-teal-500 shadow-md transition duration-300 ease-in-out transform hover:bg-teal-600 hover:scale-110 hover:shadow-lg focus:outline-none"
                 type="submit">Lưu thay đổi</button>
             <button
-                class="px-6 py-3 font-semibold text-white transition duration-300 ease-in-out transform border rounded-lg shadow-md bg-rose-500 border-rose-500 hover:bg-rose-600 hover:scale-110 hover:shadow-lg focus:outline-none"
+                class="px-6 py-3 font-semibold text-white bg-rose-500 rounded-lg border border-rose-500 shadow-md transition duration-300 ease-in-out transform hover:bg-rose-600 hover:scale-110 hover:shadow-lg focus:outline-none"
                 type="reset">Bỏ thay đổi</button>
             <button name="returnSubmit"
-                class="px-6 py-3 font-semibold text-white transition duration-300 ease-in-out transform bg-indigo-500 border border-indigo-500 rounded-lg shadow-md hover:bg-indigo-600 hover:scale-110 hover:shadow-lg focus:outline-none"
+                class="px-6 py-3 font-semibold text-white bg-indigo-500 rounded-lg border border-indigo-500 shadow-md transition duration-300 ease-in-out transform hover:bg-indigo-600 hover:scale-110 hover:shadow-lg focus:outline-none"
                 type="submit">Quay lại</button>
         </div>
     </form>
 
     <!-- Phần thông tin địa chỉ -->
     <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-semibold text-gray-800 dark:text-white">Thông tin địa chỉ</div>
             <button onclick="addRes(<?php echo $data['rid'] ?>)"
-                class="px-4 py-2 text-teal-500 transition duration-300 ease-in-out transform border border-teal-500 rounded-lg hover:bg-teal-500 hover:text-white hover:scale-105">
+                class="px-4 py-2 text-teal-500 rounded-lg border border-teal-500 transition duration-300 ease-in-out transform hover:bg-teal-500 hover:text-white hover:scale-105">
                 Thêm địa chỉ
             </button>
         </div>
 
         <div class="space-y-6 schedule-list">
             <?php foreach ($data['restaurant_data']['address'] as $key => $value) { ?>
-                <div class="p-4 space-y-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <div class="p-4 space-y-4 bg-gray-50 rounded-lg dark:bg-gray-700">
                     <form action="<?php echo $path ?>admin/restaurant/addAddress" method="POST">
                         <div class="flex items-center">
                             <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi
                                 nhánh</label>
                             <input type="text" name="branch" id="branch"
-                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                                 value="<?php echo $value['branch'] ?>">
                         </div>
 
-                        <div class=" flex items-center">
+                        <div class="flex items-center">
                             <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa
                                 điểm</label>
                             <input type="text" name="location" id="location"
-                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                                 value="<?php echo $value['location'] ?>">
                         </div>
 
-                        <div class=" flex items-center">
+                        <div class="flex items-center">
                             <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả
                                 địa
                                 điểm</label>
                             <textarea name="description" id="description" rows="10"
-                                class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $value['description'] ?></textarea>
+                                class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><?php echo $value['description'] ?></textarea>
                         </div>
 
                         <input type="hidden" name="aid" value="<?php echo $value['aid']; ?>">
@@ -199,7 +189,7 @@
                                 Xóa địa chỉ
                             </a>
                             <button name="changeAddress"
-                                class="px-4 py-2 text-teal-500 transition duration-300 ease-in-out transform border border-teal-500 rounded-lg hover:bg-teal-500 hover:text-white hover:scale-105"
+                                class="px-4 py-2 text-teal-500 rounded-lg border border-teal-500 transition duration-300 ease-in-out transform hover:bg-teal-500 hover:text-white hover:scale-105"
                                 type="submit">
                                 Sửa địa chỉ
                             </button>
@@ -220,23 +210,23 @@
             <form action="<?php echo $path ?>admin/restaurant/addAddress" method="POST">
                 <div class="flex items-center">
                     <label for="branch" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Chi nhánh</label>
-                    <input type="text" name="branch" id="branch" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    <input type="text" name="branch" id="branch" class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
                     <input name="rid" type="number" value="${rid}" class="hidden">
                 </div>
 
                 <div class="flex items-center">
                     <label for="location" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Địa điểm</label>
-                    <input type="text" name="location" id="location" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    <input type="text" name="location" id="location" class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
                 </div>
 
                 <div class="flex items-center">
                     <label for="description" class="w-1/4 text-lg font-medium text-gray-900 dark:text-white">Mô tả địa điểm</label>
-                    <textarea name="description" id="description" rows="10" class="w-3/4 p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required></textarea>
+                    <textarea name="description" id="description" rows="10" class="p-3 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required></textarea>
                 </div>
 
                 <div class="flex justify-end mt-4 space-x-4">
                     <button
-                        class="px-4 py-2 text-teal-500 transition duration-300 ease-in-out transform border border-teal-500 rounded-lg hover:bg-teal-500 hover:text-white hover:scale-105"
+                        class="px-4 py-2 text-teal-500 rounded-lg border border-teal-500 transition duration-300 ease-in-out transform hover:bg-teal-500 hover:text-white hover:scale-105"
                         type="submit">
                         Thêm địa chỉ
                     </button>
