@@ -19,13 +19,23 @@ require_once '../app/views/authen/' . $data['page'] . '.php';
 
 <body>
     <h2></h2>
+
+    <?php
+    // Hiển thị thông báo lỗi nếu có
+    if (isset($_SESSION['login_error'])) {
+        echo '<script type="text/javascript">toastr.error("' . htmlspecialchars($_SESSION['login_error'], ENT_QUOTES, 'UTF-8') . '")</script>';
+        unset($_SESSION['login_error']);
+    }
+    ?>
+
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="<?php echo $path ?>authen/home/signup" method="post">
                 <h1>Tạo tài khoản</h1>
                 <div class="social-container">
                     <a href="#" class="social fb"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social gg"><i class="bi bi-google"></i></a>
+                    <a href="<?php echo $path ?>authen/home/google_login" class="social gg"><i
+                            class="bi bi-google"></i></a>
                     <a href="#" class="social ld"><i class="bi bi-linkedin"></i></a>
                 </div>
                 <span>hoặc sử dụng email của bạn để đăng ký</span>
@@ -40,7 +50,8 @@ require_once '../app/views/authen/' . $data['page'] . '.php';
                 <h1>Đăng nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social fb"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social gg"><i class="bi bi-google"></i></a>
+                    <a href="<?php echo $path ?>authen/home/google_login" class="social gg"><i
+                            class="bi bi-google"></i></a>
                     <a href="#" class="social ld"><i class="bi bi-linkedin"></i></a>
                 </div>
                 <span>hoặc sử dụng tài khoản của bạn</span>
