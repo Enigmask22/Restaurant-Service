@@ -8,7 +8,7 @@ class BookingController extends Controller
 
     public function __construct()
     {
-        $this->model_booking = $this->model('bookingModel');
+        $this->model_booking = $this->model('BookingModel');
         $this->booking = json_decode($this->model_booking->getAll());
         $this->url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     }

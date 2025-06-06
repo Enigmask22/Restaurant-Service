@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class NewsController extends Controller {
+class NewsController extends Controller
+{
     private $category;
     private $model_category;
 
@@ -9,7 +10,8 @@ class NewsController extends Controller {
 
     private $model_news;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model_category = $this->model('CategoryModel');
         $this->model_general = $this->model('GeneralModel');
         $this->model_news = $this->model('NewsModel');
@@ -18,10 +20,11 @@ class NewsController extends Controller {
         $this->general = $this->model_general->getAll();
     }
 
-    public function list_news($page=1, $search='') {
+    public function list_news($page = 1, $search = '')
+    {
         $each_page = 6;
 
-        if(isset($_GET['search'])) {
+        if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $maxSearch = $this->model_news->getTotalNews($search);
         } else if ($search != '') {
@@ -32,8 +35,8 @@ class NewsController extends Controller {
 
         $maxPage = ceil($maxSearch / $each_page);
 
-        $start = ($page-1) * $each_page;
-        if(isset($_GET['search'])) {
+        $start = ($page - 1) * $each_page;
+        if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $news = $this->model_news->getAllByPage($start, $each_page, $search);
             $head = "Tìm kiếm: $search";
@@ -47,7 +50,8 @@ class NewsController extends Controller {
         $this->renderUser('layout', ['page' => 'news/list', 'category' => $this->category, 'general' => $this->general, 'news' => $news, 'maxPage' => $maxPage, 'currentPage' => $page, 'search' => $search, 'heading' => $head]);
     }
 
-    public function detail_news($nid) {
+    public function detail_news($nid)
+    {
         $news = $this->model_news->getAllByID($nid);
         $restaurant = $this->model_news->getRelatedRes($nid);
         $this->renderUser('layout', ['page' => 'news/detail', 'category' => $this->category, 'news' => $news, 'restaurant' => $restaurant, 'general' => $this->general]);

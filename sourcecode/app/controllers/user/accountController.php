@@ -27,11 +27,11 @@ class accountController extends Controller
 
     public function __construct()
     {
-        $this->model_user = $this->model('userModel');
-        $this->model_booking = $this->model('bookingModel');
-        $this->model_category = $this->model('categoryModel');
-        $this->model_general = $this->model('generalModel');
-        $this->model_file = $this->model('fileModel');
+        $this->model_user = $this->model('UserModel');
+        $this->model_booking = $this->model('BookingModel');
+        $this->model_category = $this->model('CategoryModel');
+        $this->model_general = $this->model('GeneralModel');
+        $this->model_file = $this->model('FileModel');
 
         $this->category = $this->model_category->getAll();
         $this->general = $this->model_general->getAll();

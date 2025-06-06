@@ -4,7 +4,7 @@ class CommentController extends Controller {
     private $model_comment; private $comment; private $url;
 
     public function __construct() {
-        $this->model_comment = $this->model('commentModel');
+        $this->model_comment = $this->model('CommentModel');
         $this->comment = json_decode($this->model_comment->getAll());
         $this->url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     }

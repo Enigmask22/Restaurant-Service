@@ -105,8 +105,8 @@ class ImageModel
 
             if ($deleteResult && $imgid) {
                 // Xóa file từ bảng file và AWS S3
-                $fileModel = new FileModel();
-                $fileModel->deleteOne($imgid);
+                $FileModel = new FileModel();
+                $FileModel->deleteOne($imgid);
             }
 
             return $deleteResult;

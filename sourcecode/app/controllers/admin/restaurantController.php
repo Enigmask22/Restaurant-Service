@@ -7,8 +7,8 @@ class RestaurantController extends Controller
 
     public function __construct()
     {
-        $this->model_restaurant = $this->model('restaurantModel');
-        $this->model_category = $this->model('categoryModel');
+        $this->model_restaurant = $this->model('RestaurantModel');
+        $this->model_category = $this->model('CategoryModel');
     }
 
     public function index()
@@ -76,8 +76,8 @@ class RestaurantController extends Controller
                                 $file['file_key'] = $result['fileKey'];
 
                                 // Lưu thông tin file vào bảng file
-                                $fileModel = $this->model('FileModel');
-                                $fileResult = $fileModel->createOne($file);
+                                $FileModel = $this->model('FileModel');
+                                $fileResult = $FileModel->createOne($file);
 
                                 if ($fileResult) {
                                     // Cập nhật URL hình ảnh
@@ -171,8 +171,8 @@ class RestaurantController extends Controller
                                 $file['file_key'] = $result['fileKey'];
 
                                 // Lưu thông tin file vào bảng file
-                                $fileModel = $this->model('FileModel');
-                                $fileResult = $fileModel->createOne($file);
+                                $FileModel = $this->model('FileModel');
+                                $fileResult = $FileModel->createOne($file);
 
                                 if ($fileResult) {
                                     // Lấy URL hình ảnh để lưu vào avatar

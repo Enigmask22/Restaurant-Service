@@ -4,7 +4,7 @@ class GeneralController extends Controller {
     private $model_general; private $general;
 
     public function __construct() {
-        $this->model_general = $this->model('generalModel');
+        $this->model_general = $this->model('GeneralModel');
         $this->general = json_decode($this->model_general->getGeneral());
     }
 

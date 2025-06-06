@@ -7,7 +7,7 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        $this->model_category = $this->model('categoryModel');
+        $this->model_category = $this->model('CategoryModel');
         $this->category = $this->model_category->getCategoryInfo();
         $this->url = str_replace('index.php', '', $_SERVER['PHP_SELF']);
     }
@@ -52,8 +52,8 @@ class CategoryController extends Controller
                                 $file['file_key'] = $result['fileKey'];
 
                                 // Lưu thông tin file vào bảng file
-                                $fileModel = $this->model('FileModel');
-                                $fileResult = $fileModel->createOne($file);
+                                $FileModel = $this->model('FileModel');
+                                $fileResult = $FileModel->createOne($file);
 
                                 if ($fileResult) {
                                     // Lấy URL hình ảnh để lưu vào category_img
@@ -125,8 +125,8 @@ class CategoryController extends Controller
                                 $file['file_key'] = $result['fileKey'];
 
                                 // Lưu thông tin file vào bảng file
-                                $fileModel = $this->model('FileModel');
-                                $fileResult = $fileModel->createOne($file);
+                                $FileModel = $this->model('FileModel');
+                                $fileResult = $FileModel->createOne($file);
 
                                 if ($fileResult) {
                                     // Cập nhật URL hình ảnh

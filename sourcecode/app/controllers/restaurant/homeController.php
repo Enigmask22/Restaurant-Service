@@ -73,8 +73,8 @@ class HomeController extends Controller
                                 $file['file_key'] = $result['fileKey'];
 
                                 // Lưu thông tin file vào bảng file
-                                $fileModel = $this->model('FileModel');
-                                $fileResult = $fileModel->createOne($file);
+                                $FileModel = $this->model('FileModel');
+                                $fileResult = $FileModel->createOne($file);
 
                                 if ($fileResult) {
                                     // Cập nhật avatar của nhà hàng

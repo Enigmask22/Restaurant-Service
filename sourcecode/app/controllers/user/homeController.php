@@ -19,12 +19,12 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->model_category = $this->model('categoryModel');
-        $this->model_restaurant = $this->model('restaurantModel');
-        $this->model_news = $this->model('newsModel');
-        $this->model_general = $this->model('generalModel');
-        $this->model_image = $this->model('imageModel');
-        $this->model_contact = $this->model('contactModel');
+        $this->model_category = $this->model('CategoryModel');
+        $this->model_restaurant = $this->model('RestaurantModel');
+        $this->model_news = $this->model('NewsModel');
+        $this->model_general = $this->model('GeneralModel');
+        $this->model_image = $this->model('ImageModel');
+        $this->model_contact = $this->model('ContactModel');
 
         $this->category = $this->model_category->getAll();
         $this->general = $this->model_general->getAll();
@@ -92,10 +92,10 @@ class HomeController extends Controller
     public function photo()
     {
         // Khởi tạo model để lấy dữ liệu hình ảnh
-        $imageModel = $this->model('ImageModel');
+        $ImageModel = $this->model('ImageModel');
 
         // Lấy tất cả hình ảnh từ cơ sở dữ liệu
-        $images = $imageModel->getAllWithRestaurantInfo();
+        $images = $ImageModel->getAllWithRestaurantInfo();
 
         // Render trang với dữ liệu hình ảnh
         $this->renderUser('layout', [

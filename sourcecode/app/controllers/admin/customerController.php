@@ -2,7 +2,7 @@
 class CustomerController extends Controller {
     private $model_contact;
     public function __construct() {
-        $this->model_contact = $this->model('contactModel');
+        $this->model_contact = $this->model('ContactModel');
     }
 
     public function index() {
