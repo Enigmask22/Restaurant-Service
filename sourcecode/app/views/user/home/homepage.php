@@ -93,7 +93,7 @@
         <div class="mb-5 text-center">
             <h2 class="text-uppercase fw-bold" style="color: #2c3e50;">
                 Nhà hàng chính
-                <div style="height: 4px; width: 50px; background: #e74c3c; margin: 15px auto;"></div>
+                <div style="height: 4px; width: 50px; background: linear-gradient(45deg, #FFD700, #FFA500); margin: 15px auto; border-radius: 2px;"></div>
             </h2>
         </div>
         <div class="row g-4">
@@ -101,30 +101,36 @@
             <?php
             for ($i = 0; $i < 1; $i++) {
                 $href = $path . 'user/restaurant/restaurant_detail/' . $data['restaurant_five'][$i]['rid'];
+                $formatted_price = number_format($data['restaurant_five'][$i]['original_adult_price'], 0, ',', '.');
                 ?>
                 <div class="col-md-6">
-                    <div class="card h-100"
-                        style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                        <div class="position-relative" style="overflow: hidden;">
-                            <img src="<?= $data['restaurant_five'][$i]['avatar'] ?>" class="card-img-top"
-                                style="height: 400px; object-fit: cover;" alt="photo">
-                            <div class="text-center card-body"
-                                style="background: rgba(255, 255, 255, 0.95); padding: 20px;">
-                                <h5 class="mb-2 card-title text-uppercase">
+                    <div class="premium-restaurant-card featured-card position-relative h-100">
+                        <div class="premium-badge">
+                            <i class="bi bi-star-fill"></i>
+                            <span>NỔI BẬT</span>
+                        </div>
+                        <div class="restaurant-image-container">
+                            <img src="<?= $data['restaurant_five'][$i]['avatar'] ?>" class="restaurant-image" alt="photo">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="restaurant-content">
+                            <div class="restaurant-info">
+                                <h4 class="restaurant-name">
                                     <?= $data['restaurant_five'][$i]['restaurant_name'] ?>
-                                </h5>
-                                <h6 class="mb-2 card-subtitle text-uppercase">
-                                    <?= $data['restaurant_five'][$i]['location'] ?>
-                                </h6>
-                                <p class="card-text"><span class="fw-bold">Giá:
-                                    </span><?= $data['restaurant_five'][$i]['original_adult_price'] ?> VNĐ</p>
-                                <div style="text-align: center; margin-top: 10px;">
-                                    <button onclick='location.href="<?php echo $href; ?>"' class="btn"
-                                        style="background-color: #f97316; color: white; padding: 8px 24px; border-radius: 25px; text-transform: uppercase; font-weight: 500; transition: all 0.3s ease; display: inline-block; border: none; cursor: pointer;">
-                                        ĐẶT NGAY
-                                    </button>
+                                </h4>
+                                <div class="location-info">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <span><?= $data['restaurant_five'][$i]['location'] ?></span>
+                                </div>
+                                <div class="price-section">
+                                    <div class="price-label">Giá từ</div>
+                                    <div class="price-value"><?= $formatted_price ?> <span class="currency">VNĐ</span></div>
                                 </div>
                             </div>
+                            <button onclick='location.href="<?php echo $href; ?>"' class="premium-book-btn">
+                                <span>ĐẶT BÀN NGAY</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -132,32 +138,34 @@
 
             <!-- Grid 2x2 nhà hàng bên phải -->
             <div class="col-md-6">
-                <div class="row g-4">
+                <div class="row g-3">
                     <?php for ($i = 1; $i <= 4; $i++) {
                         $href = $path . 'user/restaurant/restaurant_detail/' . $data['restaurant_five'][$i]['rid'];
+                        $formatted_price = number_format($data['restaurant_five'][$i]['original_adult_price'], 0, ',', '.');
                         ?>
                         <div class="col-6">
-                            <div class="card h-100"
-                                style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                                <div class="position-relative" style="overflow: hidden;">
-                                    <img src="<?= $data['restaurant_five'][$i]['avatar'] ?>" class="card-img-top"
-                                        style="height: 200px; object-fit: cover;" alt="photo">
-                                    <div class="card-body">
-                                        <h6 class="mb-2 card-title text-uppercase">
+                            <div class="premium-restaurant-card compact-card h-100">
+                                <div class="restaurant-image-container">
+                                    <img src="<?= $data['restaurant_five'][$i]['avatar'] ?>" class="restaurant-image" alt="photo">
+                                    <div class="image-overlay"></div>
+                                </div>
+                                <div class="restaurant-content">
+                                    <div class="restaurant-info">
+                                        <h6 class="restaurant-name">
                                             <?= $data['restaurant_five'][$i]['restaurant_name'] ?>
                                         </h6>
-                                        <p class="mb-2 card-subtitle text-uppercase small">
-                                            <?= $data['restaurant_five'][$i]['location'] ?>
-                                        </p>
-                                        <p class="card-text small"><span class="fw-bold">Giá:
-                                            </span><?= $data['restaurant_five'][$i]['original_adult_price'] ?> VNĐ</p>
-                                        <div style="text-align: center; margin-top: 10px;">
-                                            <button onclick='location.href="<?php echo $href; ?>"' class="btn"
-                                                style="background-color: #f97316; color: white; padding: 8px 24px; border-radius: 25px; text-transform: uppercase; font-weight: 500; transition: all 0.3s ease; display: inline-block; border: none; cursor: pointer;">
-                                                ĐẶT NGAY
-                                            </button>
+                                        <div class="location-info">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                            <span><?= $data['restaurant_five'][$i]['location'] ?></span>
+                                        </div>
+                                        <div class="price-section">
+                                            <div class="price-value"><?= $formatted_price ?> <span class="currency">VNĐ</span></div>
                                         </div>
                                     </div>
+                                    <button onclick='location.href="<?php echo $href; ?>"' class="premium-book-btn compact">
+                                        <span>ĐẶT BÀN</span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +208,258 @@
 </div>
 
 <style>
-    /* Hover Effects */
+    /* Premium Restaurant Card Styles */
+    .premium-restaurant-card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        position: relative;
+    }
+
+    .premium-restaurant-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .premium-restaurant-card.featured-card {
+        background: linear-gradient(145deg, #fff8e1 0%, #ffffff 100%);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .premium-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        color: #2c3e50;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .premium-badge i {
+        font-size: 10px;
+    }
+
+    .restaurant-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+    }
+
+    .compact-card .restaurant-image-container {
+        height: 180px;
+    }
+
+    .restaurant-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .premium-restaurant-card:hover .restaurant-image {
+        transform: scale(1.15) rotate(1deg);
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.3) 100%
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .premium-restaurant-card:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .restaurant-content {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 400px);
+        min-height: 200px;
+    }
+
+    .compact-card .restaurant-content {
+        padding: 15px;
+        height: calc(100% - 180px);
+        min-height: 150px;
+    }
+
+    .restaurant-info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .restaurant-name {
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+    }
+
+    .location-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: #7f8c8d;
+        font-size: 14px;
+        margin-bottom: 15px;
+        font-weight: 500;
+        min-height: 40px;
+        line-height: 1.4;
+    }
+
+    .compact-card .location-info {
+        font-size: 12px;
+        margin-bottom: 10px;
+        min-height: 32px;
+    }
+
+    .location-info i {
+        color: #e74c3c;
+        font-size: 12px;
+    }
+
+    .price-section {
+        margin-top: auto;
+        margin-bottom: 20px;
+    }
+
+    .compact-card .price-section {
+        margin-bottom: 15px;
+    }
+
+    .price-label {
+        color: #7f8c8d;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .price-value {
+        color: #2c3e50;
+        font-size: 24px;
+        font-weight: 800;
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+    }
+
+    .compact-card .price-value {
+        font-size: 18px;
+    }
+
+    .currency {
+        font-size: 14px;
+        color: #7f8c8d;
+        font-weight: 500;
+    }
+
+    .compact-card .currency {
+        font-size: 12px;
+    }
+
+    .premium-book-btn {
+        background: linear-gradient(45deg, #e74c3c, #c0392b);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .premium-book-btn.compact {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .premium-book-btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+        transition: all 0.6s;
+    }
+
+    .premium-book-btn:hover:before {
+        left: 100%;
+    }
+
+    .premium-book-btn:hover {
+        background: linear-gradient(45deg, #c0392b, #a93226);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(231, 76, 60, 0.4);
+    }
+
+    .premium-book-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .premium-book-btn:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Premium Restaurant Card Base Styles */
+    .premium-restaurant-card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        position: relative;
+    }
+
+    .premium-restaurant-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .premium-restaurant-card.featured-card {
+        background: linear-gradient(145deg, #fff8e1 0%, #ffffff 100%);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+    }
+
+    /* Hover Effects for existing cards */
     .card:hover {
         transform: translateY(-5px);
     }
@@ -226,39 +485,81 @@
         }
     }
 
-    .card {
-        animation: fadeIn 0.5s ease-out forwards;
+    .card, .premium-restaurant-card {
+        animation: fadeIn 0.6s ease-out forwards;
     }
 
     /* Stagger animation for cards */
-    .col-md-6:nth-child(1) .card {
+    .col-md-6:nth-child(1) .card,
+    .col-md-6:nth-child(1) .premium-restaurant-card {
         animation-delay: 0.1s;
     }
 
-    .col-md-6:nth-child(2) .card {
+    .col-md-6:nth-child(2) .card,
+    .col-md-6:nth-child(2) .premium-restaurant-card {
         animation-delay: 0.2s;
     }
 
-    .col-md-6:nth-child(3) .card {
+    .col-6:nth-child(1) .premium-restaurant-card {
         animation-delay: 0.3s;
     }
 
-    .col-md-6:nth-child(4) .card {
+    .col-6:nth-child(2) .premium-restaurant-card {
         animation-delay: 0.4s;
     }
 
-    .col-md-6:nth-child(5) .card {
+    .col-6:nth-child(3) .premium-restaurant-card {
         animation-delay: 0.5s;
     }
 
-    .col-md-6:nth-child(6) .card {
+    .col-6:nth-child(4) .premium-restaurant-card {
         animation-delay: 0.6s;
     }
 
-    /* Optional: Add media queries for better mobile experience */
+    /* Responsive Design */
     @media (max-width: 768px) {
-        .card {
+        .premium-restaurant-card {
             margin-bottom: 20px;
+        }
+        
+        .restaurant-image-container {
+            height: 250px;
+        }
+        
+        .compact-card .restaurant-image-container {
+            height: 200px;
+        }
+        
+        .restaurant-content {
+            padding: 20px;
+        }
+        
+        .premium-book-btn {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+        
+        .price-value {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .restaurant-image-container,
+        .compact-card .restaurant-image-container {
+            height: 200px;
+        }
+        
+        .restaurant-content {
+            padding: 15px;
+        }
+        
+        .restaurant-name {
+            font-size: 16px;
+        }
+        
+        .price-value {
+            font-size: 18px;
         }
     }
 </style>
