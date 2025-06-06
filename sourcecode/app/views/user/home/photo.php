@@ -131,3 +131,12 @@
         }
     });
 </script>
+
+<?php
+$pageSpecificTitle = "Thư Viện Hình Ảnh Nhà Hàng Buffet 5SR | Không Gian & Món Ăn";
+$pageSpecificDescription = "Khám phá những hình ảnh chân thực và sống động nhất về không gian sang trọng, các món ăn buffet đặc sắc và những khoảnh khắc đáng nhớ tại Nhà hàng Buffet 5SR.";
+$pageSpecificKeywords = "hình ảnh buffet 5sr, thư viện ảnh nhà hàng, không gian buffet 5sr, món ăn buffet 5sr, ảnh đẹp nhà hàng quận 10";
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/img-lib.jpg'; // Ảnh banner chung cho thư viện
+$ogSiteName = "Nhà hàng Buffet 5SR";
+$ogType = "restaurant:gallery"; // Hoặc một loại og:type liên quan đến collection/gallery
+?>

@@ -563,3 +563,14 @@
         }
     }
 </style>
+
+
+<?php
+/* ------ Danh sách mô tả thông tin SEO cho trang chủ ------ */
+$pageSpecificTitle = "Buffet 5SR: Hải Sản, Lẩu & Nướng Cao Cấp Quận 10, TP.HCM"; // Tiêu đề trang chủ
+$pageSpecificDescription = "Trải nghiệm đại tiệc buffet hơn 150+ món hải sản tươi sống, lẩu nướng đặc sắc tại Nhà hàng Buffet 5SR. Không gian sang trọng, dịch vụ 5 sao. Đặt bàn ngay nhận ưu đãi!"; // Mô tả ngắn gọn về nhà hàng và dịch vụ buffet
+$pageSpecificKeywords = "buffet 5sr, nhà hàng buffet quận 10, buffet hải sản tphcm, lẩu nướng cao cấp, đặt bàn buffet, buffet ngon sài gòn, 5sr restaurant"; // Từ khóa SEO liên quan đến nhà hàng và dịch vụ buffet
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/home.jpeg'; // URL tuyệt đối đến hình ảnh đại diện của trang chủ
+$ogSiteName = "Nhà hàng Buffet 5SR"; // Tên trang web hoặc nhà hàng
+$ogType = "restaurant:homepage"; // Loại trang, có thể là 'website', 'article', 'product', v.v.
+?>

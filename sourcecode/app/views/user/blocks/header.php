@@ -173,3 +173,13 @@ if (isset($_SESSION['user-id'])) {
       </div>
     </div>
   </nav>
+
+<?php
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER['REQUEST_URI'];
+// Loại bỏ các tham số query string nếu có
+$uri = strtok($uri, '?');
+
+$canonicalUrl = $protocol . "://" . $host . $uri; // URL tiêu chuẩn của trang hiện tại
+?>

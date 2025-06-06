@@ -177,3 +177,13 @@
         </div>
     </div>
 </div>
+
+<?php
+// Thiết lập SEO cho trang giới thiệu
+$pageSpecificTitle = "Về Chúng Tôi - Nhà Hàng Buffet 5SR | Câu Chuyện & Đam Mê Ẩm Thực";
+$pageSpecificDescription = "Tìm hiểu về hành trình xây dựng Nhà hàng Buffet 5SR, đội ngũ tâm huyết và cam kết mang đến trải nghiệm ẩm thực buffet 5 sao đẳng cấp tại Quận 10, TP.HCM.";
+$pageSpecificKeywords = "về buffet 5sr, giới thiệu nhà hàng 5sr, câu chuyện buffet 5sr, đội ngũ đầu bếp 5sr, nhà hàng buffet uy tín quận 10";
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/about-us.png'; // Ảnh banner trang giới thiệu hoặc ảnh đội ngũ
+$ogSiteName = "Nhà hàng Buffet 5SR";
+$ogType = "restaurant:introduction"; // Hoặc 'profile' nếu tập trung vào người sáng lập
+?>

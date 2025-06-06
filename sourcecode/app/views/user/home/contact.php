@@ -176,3 +176,13 @@
         transition: all 0.3s ease;
     }
 </style>
+
+<?php
+// Thiết lập SEO cho trang liên hệ
+$pageSpecificTitle = "Liên Hệ Nhà Hàng Buffet 5SR | Đặt Bàn & Hỗ Trợ";
+$pageSpecificDescription = "Liên hệ với Nhà hàng Buffet 5SR để đặt bàn, giải đáp thắc mắc hoặc góp ý. Chúng tôi luôn sẵn sàng phục vụ bạn tại Quận 10, TP.HCM. Gọi ngay hoặc gửi form!";
+$pageSpecificKeywords = "liên hệ buffet 5sr, đặt bàn buffet 5sr, địa chỉ nhà hàng 5sr, số điện thoại buffet 5sr, hỗ trợ khách hàng";
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/contact-us.jpg';
+$ogSiteName = "Nhà hàng Buffet 5SR";
+$ogType = "restaurant:contact"; // Hoặc 'contact_point' nếu schema.org được dùng sâu hơn
+?>
