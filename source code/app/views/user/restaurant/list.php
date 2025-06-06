@@ -169,3 +169,14 @@ window.addEventListener('popstate', function(event) {
     window.location.reload();
 });
 </script>
+
+<?php
+// --- SEO Information for Restaurant Types Listing Page ---
+$pageSpecificTitle = "Khám Phá & Đặt Bàn Các Loại Nhà Hàng Ưa Thích | Buffet 5SR Platform";
+$pageSpecificDescription = "Duyệt qua danh sách đa dạng các loại hình nhà hàng từ Nhật Bản, Hàn Quốc, Việt Nam, Buffet Hải Sản đến Steak House. Tìm và đặt bàn trực tuyến dễ dàng qua nền tảng của Buffet 5SR.";
+// Từ khóa nên bao gồm các loại nhà hàng phổ biến và các cụm từ tìm kiếm chung
+$pageSpecificKeywords = "các loại nhà hàng, đặt bàn online, nhà hàng nhật bản, buffet hải sản, ẩm thực việt nam, nhà hàng hàn quốc, steak house, nhà hàng ý, beer club, nhà hàng chay, tìm nhà hàng ngon, đặt chỗ nhà hàng, nền tảng đặt bàn 5sr";
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/list-res.png'; // Một hình ảnh tổng quan về sự đa dạng ẩm thực, hoặc logo nền tảng
+$ogSiteName = "Nền tảng Đặt Bàn Buffet 5SR"; // Tên của nền tảng đặt bàn nhà hàng
+$ogType = "website"; // Trang này hoạt động như một trang điều hướng, 'website' là phù hợp
+?>

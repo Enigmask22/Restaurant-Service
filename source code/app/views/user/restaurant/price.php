@@ -141,3 +141,13 @@
     </div>
   </div>
 </div>
+
+<?php
+// Thông tin meta cho trang bảng giá buffet
+$pageSpecificTitle = "Bảng Giá Buffet & Dịch Vụ - Nhà Hàng Buffet 5SR | Ưu Đãi Hấp Dẫn";
+$pageSpecificDescription = "Tham khảo bảng giá chi tiết các gói buffet trưa, tối, cuối tuần và các dịch vụ đi kèm tại Nhà hàng Buffet 5SR. Nhiều lựa chọn phù hợp với mọi nhu cầu.";
+$pageSpecificKeywords = "bảng giá buffet 5sr, giá buffet hải sản, giá buffet lẩu nướng, giá buffet trưa, giá buffet tối, ưu đãi buffet 5sr";
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/pricing.jpg'; // Hình ảnh đại diện cho bảng giá buffet
+$ogSiteName = "Nhà hàng Buffet 5SR";
+$ogType = "restaurant:prices"; // Loại Open Graph cho trang bảng giá buffet
+?>

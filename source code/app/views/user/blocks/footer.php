@@ -115,3 +115,27 @@
     transform: translateY(-2px);
 }
 </style>
+<!-- Nhúng file JS chứa class SeoManager -->
+<?php
+$path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+echo '<script src="' . $path . 'js/seoManager.js"></script>';
+?>
+
+<script>
+    // Khởi tạo đối tượng SeoManager với thông tin của trang hiện tại
+    // `autoUpdate: true` (mặc định) sẽ tự động gọi this.updateAll() khi DOMContentLoaded
+    const seoUpdater = new SeoManager({
+        pageTitle: "<?php echo addslashes($pageSpecificTitle); ?>",
+        metaDescriptionContent: "<?php echo addslashes($pageSpecificDescription); ?>",
+        metaKeywordsContent: "<?php echo addslashes($pageSpecificKeywords); ?>",
+        ogImageContent: "<?php echo addslashes($pageSpecificOgImage); ?>",
+        ogUrlContent: "<?php echo isset($ogUrl) ? addslashes($ogUrl) : ''; ?>",
+        ogType: "<?php echo addslashes($ogType); ?>", // Loại trang cụ thể (ví dụ: 'website', 'article')
+        ogSiteName: "<?php echo addslashes($ogSiteName); ?>",
+        canonicalHref: "<?php echo isset($canonicalUrl) ? addslashes($canonicalUrl) : ''; ?>",
+        // autoUpdate: true, // Mặc định là true, không cần ghi rõ nếu muốn tự động chạy
+    });
+    
+    // Thêm log để theo dõi trạng thái SEO
+    console.log("SEO Manager initialized for: " + document.title);
+</script>

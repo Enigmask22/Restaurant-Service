@@ -114,3 +114,13 @@
   color: #95a5a6;
 }
 </style>
+
+<?php
+// Thông tin SEO cho Trang Danh Sách Tin Tức/Blog - Nhà hàng Buffet 5SR
+$pageSpecificTitle = "Tin Tức Ẩm Thực & Sự Kiện Mới Nhất | Blog Nhà Hàng Buffet 5SR";
+$pageSpecificDescription = "Cập nhật những tin tức nóng hổi, sự kiện ẩm thực đặc sắc, các chương trình khuyến mãi hấp dẫn và bí quyết thưởng thức buffet từ chuyên gia tại Nhà hàng Buffet 5SR.";
+$pageSpecificKeywords = "blog ẩm thực buffet 5sr, tin tức nhà hàng 5sr, sự kiện ẩm thực tphcm, khuyến mãi buffet mới nhất, mẹo ăn buffet ngon";
+$pageSpecificOgImage = "https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/news.jpg";
+$ogType= 'restaurant:articles';
+$ogSiteName = "Nhà hàng Buffet 5SR"; // Tên trang web hoặc nhà hàng
+?>

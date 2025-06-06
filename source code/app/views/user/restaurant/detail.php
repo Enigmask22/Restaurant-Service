@@ -334,3 +334,18 @@
         </div>
     </div>
 </div>
+
+<?php
+// Thông tin SEO cho trang chi tiết nhà hàng
+$pageSpecificTitle = htmlspecialchars($data['restaurant']['restaurant_name']) . " | Buffet 5SR Quận 10 TPHCM";
+$pageSpecificDescription = "Đặt bàn tại " . htmlspecialchars($data['restaurant']['restaurant_name']) .
+    ". Thưởng thức buffet hải sản tươi sống với hơn 150+ món. Không gian sang trọng, " .
+    "giá từ " . number_format($data['restaurant']['adult_price'], 0, ',', '.') . "đ" .
+    ". Đặt bàn ngay!";
+$pageSpecificKeywords = "đặt bàn " . strtolower(htmlspecialchars($data['restaurant']['restaurant_name'])) .
+    ", buffet " . strtolower($data['category_name']) .
+    ", nhà hàng quận 10, buffet hải sản tphcm, đặt bàn online, buffet giá rẻ";
+$pageSpecificOgImage = $data['restaurant']['avatar'];
+$ogSiteName = "Nhà hàng Buffet 5SR";
+$ogType = "restaurant";
+?>
