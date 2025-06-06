@@ -1,0 +1,11 @@
+2025-04-07 05:56:17 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCM, description=Chi nhánh quận 1
+2025-04-07 05:57:19 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCM, description=Chi nhánh quận 1
+2025-04-07 05:59:55 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCM, description=Chi nhánh quận 1
+2025-04-07 06:05:45 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCM, description=Chi nhánh quận 1
+2025-04-07 06:06:15 - Parameters: rid=2, aid=3, branch=1, location=123 Nguyễn Du, Q1, TPHCMdsds, description=Chi nhánh chính
+2025-04-07 06:06:18 - Parameters: rid=2, aid=3, branch=1, location=123 Nguyễn Du, Q1, TPHCMdsds, description=Chi nhánh chínhdsd
+2025-04-07 06:06:21 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCMdsds, description=Chi nhánh quận 1
+2025-04-07 06:06:23 - Parameters: rid=2, aid=4, branch=2, location=456 CMT8, Q3, TPHCMdsds, description=Chi nhánh quận 1dsds
+2025-04-07 06:10:23 - Parameters: rid=2, aid=3, branch=1, location=06 Cao Thắng, P5, Q3, TPHCM., description=Chi nhánh chínhdsd
+2025-04-07 06:10:26 - Parameters: rid=2, aid=3, branch=1, location=06 Cao Thắng, P5, Q3, TPHCM., description=Chi nhánh chính
+2025-04-07 06:10:43 - Parameters: rid=2, aid=4, branch=2, location=357 Lê Văn Sỹ, P1, Q.Tân Bình. TPHCM, description=Chi nhánh quận Tân Bình

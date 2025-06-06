@@ -1,0 +1,144 @@
+/* general */
+.steelblue {
+    color: steelblue !important;
+}
+
+.bg-whitesmoke{
+    background-color: whitesmoke;
+}
+
+/* header */
+/* Enable hover for Bootstrap dropdown */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Optional: Add some styles for better visual appearance */
+.dropdown-menu {
+    border: none;
+    /* Remove default border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle box shadow */
+}
+
+.header__user-dropdown,
+.header__login-dropdown {
+    width: 250px !important;
+}
+
+.header__cart-dropdown,
+.header__notification-dropdown {
+    width: 300px !important;
+}
+
+.header__user-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+.header__user-list li:hover a {
+    color: blue;
+}
+
+.header__cart-quantity {
+    background-color: var(--main-color);
+}
+
+.header__cart-item:hover .header__cart-title {
+    color: steelblue;
+}
+
+.breadcrumb__item:hover {
+    color: steelblue !important;
+}
+
+/* tour-list */
+.item-list__card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hide {
+    display: none;
+}
+
+.item-list__card:hover .card-title{
+    color: steelblue;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.item-list__card .card-img-top {
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+    height: 300px;
+    /* Set a fixed height for the images */
+}
+
+
+/*tour-detail*/
+.w-95 {
+    width: 95%;
+}
+
+.vw-6 {
+    height: 6vw;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-35 {
+    width: 35%;
+}
+
+.tour-detail .timeline{
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+
+
+/*price-list*/
+.price-list .tour-link:hover a{
+    color: steelblue !important;
+}
+
+/* news-list */
+.news-list .card-text{
+    max-height: 3em;
+        /* Adjust the value to set the maximum height (equivalent to 2 lines) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  line-clamp: 2;
+    /* Number of lines to display */
+    -webkit-box-orient: vertical;
+}
+
+.news-list .card-img-top {
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+    height: 200px;
+    /* Set a fixed height for the images */
+}
+
+/* new-detail */
+.news-detail .price{
+    font-size: 14px;
+}
+
+.news-detail .tour-cart:hover .tour-name{
+    color: steelblue;
+}
+
+.news-detail .related-tour {
+    height: auto;
+}
