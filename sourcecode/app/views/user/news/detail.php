@@ -134,3 +134,14 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   }
 </style>
+
+<?php
+// Tạo các thẻ meta cho SEO
+$pageSpecificTitle = htmlspecialchars($data['news']['title']) . " | Blog Buffet 5SR";
+$pageSpecificDescription = htmlspecialchars(substr(strip_tags($data['news']['header']), 0, 160)); // Giới hạn 160 ký tự
+$pageSpecificKeywords = "buffet 5sr, " . strtolower(htmlspecialchars($data['news']['title'])) . ", nhà hàng buffet, ẩm thực";
+$pageSpecificOgImage = !empty($data['news']['news_image']) ? htmlspecialchars($data['news']['news_image']) :
+  "https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/news.jpg";
+$ogType = "article"; // Loại Open Graph là article cho bài viết
+$ogSiteName = "Nhà hàng Buffet 5SR";
+?>
