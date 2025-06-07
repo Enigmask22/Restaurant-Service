@@ -51,7 +51,7 @@ if (isset($_SESSION['user-id'])) {
     style="background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.1);">
     <div class="container">
       <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="<?php echo $path ?>user/home/homepage">
         <img src="<?php echo $path ?>img/logo.avif" alt="5SR Logo" width="45" height="45" class="me-2">
         <span style="font-size: 1.5rem; font-weight: 700; color: #2c3e50;">5SR</span>
       </a>

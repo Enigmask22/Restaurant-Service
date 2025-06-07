@@ -2,11 +2,12 @@
     <div class="d-flex justify-content-center">
         <div class="flex-row d-flex w-100">
             <div class="slide d-flex align-items-center justify-content-start w-100">
+                <div class="slide-overlay"></div>
                 <div class="gap-2 p-4 mx-5 slide__information d-flex flex-column px-lg-5">
-                    <h5 class="text-uppercase lineUp">Nhà hàng sang trọng</h5>
-                    <h6 class="text-uppercase lineDown">Q1 - TP HCM</h6>
-                    <p class="lineLeft">Giảm giá 15% </p>
-                    <button class="primary-button w-25 lineRight">ĐẶT NGAY</button>
+                    <h5 class="text-uppercase lineUp hero-title">Bạn muốn mua vé buffet online ?</h5>
+                    <h6 class="text-uppercase lineDown hero-subtitle">Đặt vé buffet online</h6>
+                    <p class="lineLeft hero-description">Với nhiều ưu đãi đặc biệt</p>
+                    <!-- <button class="primary-button w-25 lineRight hero-button">Đặt vé ngay</button> -->
                 </div>
             </div>
         </div>
@@ -562,4 +563,350 @@
             font-size: 18px;
         }
     }
+
+    /* Hero Section Text Enhancement - Bright UI */
+    .slide-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 183, 77, 0.3) 0%,
+            rgba(255, 154, 158, 0.2) 30%,
+            rgba(74, 144, 226, 0.2) 60%,
+            rgba(80, 227, 194, 0.1) 100%
+        );
+        z-index: 1;
+    }
+
+    .slide__information {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        padding: 2.5rem !important;
+        border: 2px solid rgba(255, 215, 0, 0.4);
+        box-shadow: 
+            0 15px 40px rgba(255, 215, 0, 0.3),
+            0 5px 20px rgba(74, 144, 226, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-title {
+        background: linear-gradient(45deg, #e74c3c, #f39c12, #e67e22);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 
+            0 2px 4px rgba(231, 76, 60, 0.3),
+            0 0 20px rgba(243, 156, 18, 0.2);
+        font-weight: 800 !important;
+        letter-spacing: 1px;
+        margin-bottom: 15px !important;
+        filter: brightness(1.1);
+    }
+
+    .hero-subtitle {
+        background: linear-gradient(45deg, #3498db, #9b59b6, #e91e63);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 
+            0 2px 4px rgba(52, 152, 219, 0.3),
+            0 0 15px rgba(155, 89, 182, 0.2);
+        font-weight: 700 !important;
+        letter-spacing: 2px;
+        margin-bottom: 20px !important;
+        filter: brightness(1.2);
+    }
+
+    .hero-description {
+        color: #2c3e50 !important;
+        text-shadow: 
+            0 1px 2px rgba(44, 62, 80, 0.1),
+            0 0 10px rgba(52, 152, 219, 0.1);
+        font-weight: 600 !important;
+        line-height: 1.6;
+        margin-bottom: 25px !important;
+        background: linear-gradient(
+            135deg,
+            rgba(52, 152, 219, 0.1) 0%,
+            rgba(155, 89, 182, 0.05) 100%
+        );
+        padding: 15px 20px;
+        border-radius: 15px;
+        border-left: 5px solid #3498db;
+        border-top: 1px solid rgba(52, 152, 219, 0.3);
+        box-shadow: 
+            0 4px 15px rgba(52, 152, 219, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-button {
+        background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3) !important;
+        border: 2px solid #ffffff !important;
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        padding: 15px 35px !important;
+        border-radius: 50px !important;
+        box-shadow: 
+            0 8px 25px rgba(255, 107, 107, 0.4),
+            0 4px 15px rgba(254, 202, 87, 0.3),
+            0 0 30px rgba(255, 159, 243, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6));
+        transition: all 0.6s;
+    }
+
+    .hero-button:hover:before {
+        left: 100%;
+    }
+
+    .hero-button:hover {
+        background: linear-gradient(45deg, #feca57, #ff6b6b, #48cae4) !important;
+        transform: translateY(-5px) scale(1.08) !important;
+        box-shadow: 
+            0 15px 35px rgba(255, 107, 107, 0.5),
+            0 8px 25px rgba(254, 202, 87, 0.4),
+            0 0 40px rgba(72, 202, 228, 0.3),
+            inset 0 2px 0 rgba(255, 255, 255, 0.5) !important;
+        border-color: #48cae4 !important;
+        filter: brightness(1.1) saturate(1.2);
+    }
+
+    /* Additional Bright Effects */
+    .slide {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slide:before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(255, 215, 0, 0.1) 0%,
+            rgba(255, 182, 193, 0.05) 25%,
+            rgba(173, 216, 230, 0.05) 50%,
+            transparent 70%
+        );
+        animation: floating-light 8s ease-in-out infinite alternate;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @keyframes floating-light {
+        0% {
+            transform: rotate(0deg) scale(1);
+            opacity: 0.3;
+        }
+        50% {
+            transform: rotate(180deg) scale(1.1);
+            opacity: 0.6;
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+            opacity: 0.3;
+        }
+    }
+
+    /* Mobile Responsiveness for Hero Section */
+    @media (max-width: 768px) {
+        .slide__information {
+            padding: 2rem !important;
+            margin: 0 1rem !important;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 255, 255, 0.92) 100%
+            );
+            border: 2px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 2.2rem !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem !important;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem !important;
+            background: linear-gradient(
+                135deg,
+                rgba(72, 202, 228, 0.15) 0%,
+                rgba(255, 107, 107, 0.1) 100%
+            );
+        }
+        
+        .hero-button {
+            width: 60% !important;
+            padding: 12px 25px !important;
+            background: linear-gradient(45deg, #ff6b6b, #48cae4, #feca57) !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .slide__information {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.99) 0%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
+        }
+        
+        .hero-title {
+            font-size: 1.8rem !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem !important;
+        }
+        
+        .hero-description {
+            font-size: 1rem !important;
+        }
+        
+        .hero-button {
+            width: 80% !important;
+            background: linear-gradient(45deg, #feca57, #ff6b6b, #48cae4) !important;
+        }
+    }
+
+    /* Optimized Animation for Better Performance */
+    .hero-title {
+        animation: bright-pulse 4s ease-in-out infinite alternate;
+        will-change: filter, transform;
+    }
+
+    .hero-subtitle {
+        animation: bright-pulse 5s ease-in-out infinite alternate-reverse;
+        will-change: filter, transform;
+    }
+
+    /* Optimized lineLeft Animation */
+    .lineLeft.hero-description {
+        animation: optimized-lineLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes optimized-lineLeft {
+        0% {
+            opacity: 0;
+            transform: translate3d(60px, 0, 0);
+        }
+        60% {
+            opacity: 0.7;
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes bright-pulse {
+        0% {
+            filter: brightness(1.1) saturate(1.1);
+            transform: scale3d(1, 1, 1);
+        }
+        100% {
+            filter: brightness(1.25) saturate(1.25);
+            transform: scale3d(1.015, 1.015, 1);
+        }
+    }
+
+    /* Hardware Acceleration for Smooth Performance */
+    .slide__information {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    .hero-title,
+    .hero-subtitle,
+    .hero-description {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    /* Override default lineLeft animation for hero-description */
+    .lineLeft:not(.hero-description) {
+        animation: 4s anim-lineLeft ease-out infinite;
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+        .hero-title,
+        .hero-subtitle,
+        .hero-description {
+            animation: none !important;
+        }
+        
+        .lineLeft.hero-description {
+            animation: simple-fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes simple-fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    }
+
+    /* Performance optimizations */
+    .slide,
+    .slide__information,
+    .hero-title,
+    .hero-subtitle,
+    .hero-description {
+        contain: layout style paint;
+    }
 </style>
+
+<?php
+// Lấy URL hiện tại từ phía server
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER['REQUEST_URI'];
+// Loại bỏ các tham số query string nếu có
+$uri = strtok($uri, '?');
+
+/* ------ Danh sách mô tả thông tin SEO cho trang chủ ------ */
+$pageSpecificTitle = "Buffet 5SR: Hải Sản, Lẩu & Nướng Cao Cấp Quận 10, TP.HCM"; // Tiêu đề trang chủ
+$pageSpecificDescription = "Trải nghiệm đại tiệc buffet hơn 150+ món hải sản tươi sống, lẩu nướng đặc sắc tại Nhà hàng Buffet 5SR. Không gian sang trọng, dịch vụ 5 sao. Đặt bàn ngay nhận ưu đãi!"; // Mô tả ngắn gọn về nhà hàng và dịch vụ buffet
+$pageSpecificKeywords = "buffet 5sr, nhà hàng buffet quận 10, buffet hải sản tphcm, lẩu nướng cao cấp, đặt bàn buffet, buffet ngon sài gòn, 5sr restaurant"; // Từ khóa SEO liên quan đến nhà hàng và dịch vụ buffet
+$pageSpecificOgImage = 'https://restaurant-dth.s3.ap-southeast-2.amazonaws.com/og-images/home.jpeg'; // URL tuyệt đối đến hình ảnh đại diện của trang chủ
+$canonicalUrl = $protocol . "://" . $host . $uri; // URL chuẩn của trang hiện tại
+$ogSiteName = "Nhà hàng Buffet 5SR"; // Tên trang web hoặc nhà hàng
+$ogType = "restaurant:homepage"; // Loại trang, có thể là 'website', 'article', 'product', v.v.
+?>

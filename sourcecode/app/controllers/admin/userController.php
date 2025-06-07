@@ -4,7 +4,7 @@ class UserController extends Controller {
     private $model_user; private $user; private $url;
 
     public function __construct() {
-        $this->model_user = $this->model('userModel');
+        $this->model_user = $this->model('UserModel');
         $this->url = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
         $this->user = json_decode($this->model_user->getAll());
     }

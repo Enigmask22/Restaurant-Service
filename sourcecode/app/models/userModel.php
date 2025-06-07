@@ -17,7 +17,7 @@ class UserModel
 
     public function getAll()
     {
-        $query = "SELECT `uid`, `name`, phone, email, `address` FROM user WHERE role = 'U'";
+        $query = "SELECT `uid`, `name`, `phone`, `email`, `address` FROM user WHERE role = 'U'";
         $query = $this->db->select($query);
         $res = [];
         if ($query) {
